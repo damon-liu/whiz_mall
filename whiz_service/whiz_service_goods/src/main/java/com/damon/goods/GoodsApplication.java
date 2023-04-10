@@ -1,6 +1,7 @@
 package com.damon.goods;
 
 
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import tk.mybatis.spring.annotation.MapperScan;
@@ -10,6 +11,6 @@ import tk.mybatis.spring.annotation.MapperScan;
 @MapperScan(basePackages = {"com.damon.goods.dao"})
 public class GoodsApplication {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        SpringApplication.run(GoodsApplication.class);
     }
 }

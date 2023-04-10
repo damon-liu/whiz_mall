@@ -83,15 +83,15 @@ public class BrandController {
         return new Result(true, StatusCode.OK, "查询成功", list);
     }
 
-    @GetMapping(value = "/search/{page}/{size}")
-    public Result findPage(@PathVariable int page, @PathVariable int size) {
-        Page<Brand> pageList = brandService.findPage(page, size);
-        PageResult pageResult = new PageResult(pageList.getTotal(), pageList.getResult());
-        return new Result(true, StatusCode.OK, "查询成功", pageResult);
-    }
+    // @GetMapping(value = "/search/{page}/{size}")
+    // public Result findPage(@PathVariable int page, @PathVariable int size) {
+    //     Page<Brand> pageList = brandService.findPage(page, size);
+    //     PageResult pageResult = new PageResult(pageList.getTotal(), pageList.getResult());
+    //     return new Result(true, StatusCode.OK, "查询成功", pageResult);
+    // }
 
     @GetMapping(value = "/search/{page}/{size}")
-    public Result findPage(@RequestParam Map searchMap, @PathVariable int page, @PathVariable int size) {
+    public Result findPage(@RequestParam(required = false) Map searchMap, @PathVariable int page, @PathVariable int size) {
         Page<Brand> pageList = brandService.findPage(searchMap, page, size);
         PageResult pageResult = new PageResult(pageList.getTotal(), pageList.getResult());
         return new Result(true, StatusCode.OK, "查询成功", pageResult);
