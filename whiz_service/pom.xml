@@ -14,6 +14,12 @@
 
     <modules>
         <module>whiz_service_goods</module>
+        <module>whiz_service_user</module>
+        <module>whiz_service_system</module>
+        <module>whiz_service_order</module>
+        <module>whiz_service_consume</module>
+        <module>whiz_service_config</module>
+        <module>whiz_service_business</module>
     </modules>
 
 </project>
