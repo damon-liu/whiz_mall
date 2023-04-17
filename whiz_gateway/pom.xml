@@ -12,4 +12,8 @@
     <artifactId>whiz_gateway</artifactId>
     <packaging>pom</packaging>
 
+    <modules>
+        <module>whiz_gateway_system</module>
+    </modules>
+
 </project>

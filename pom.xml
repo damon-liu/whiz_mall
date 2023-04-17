@@ -16,6 +16,7 @@
         <module>whiz_web</module>
         <module>whiz_common</module>
         <module>whiz_common_db</module>
+        <module>whiz_gateway</module>
     </modules>
 
     <parent>
