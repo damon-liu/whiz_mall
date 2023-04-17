@@ -22,7 +22,9 @@ spring:
 
   # 配置Redis 127.0.0.1可以省略配置
   redis:
-    host: 192.168.200.128
+    host: 127.0.0.1
     port: 6379
+    name: root
+    password: 123456
 server:
   port: 9101
