@@ -8,9 +8,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
+import java.io.OutputStream;
 
 /**
- * Description:
+ * Description: fstDfs上传
  *
  * @author damon.liu
  * Date 2023-04-18 15:24
@@ -25,16 +26,20 @@ public class FastdfsService extends AbstractIFileService{
 
     @Override
     protected String fileType() {
-        return null;
+        return FileServerProperties.TYPE_FDFS;
     }
 
     @Override
     protected ObjectInfo uploadFile(MultipartFile file) {
-        return null;
+        return fdfsTemplate.upload(file);
     }
 
     @Override
     protected void deleteFile(String objectPath) {
+        fdfsTemplate.delete(objectPath);
+    }
 
+    @Override
+    public void out(String id, OutputStream os) {
     }
 }
