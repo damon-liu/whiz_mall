@@ -20,6 +20,7 @@
         <module>whiz_service_consume</module>
         <module>whiz_service_config</module>
         <module>whiz_service_business</module>
+        <module>whiz_service_file</module>
     </modules>
 
 </project>
