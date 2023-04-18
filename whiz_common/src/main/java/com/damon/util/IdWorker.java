@@ -1,5 +1,7 @@
 package com.damon.util;
 
+import org.springframework.stereotype.Component;
+
 import java.lang.management.ManagementFactory;
 import java.net.InetAddress;
 import java.net.NetworkInterface;

@@ -5,6 +5,7 @@ import com.damon.entity.Result;
 import com.damon.entity.StatusCode;
 import com.damon.goods.pojo.Brand;
 import com.damon.goods.service.BrandService;
+import com.damon.util.IdWorker;
 import com.github.pagehelper.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -97,5 +98,12 @@ public class BrandController {
         return new Result(true, StatusCode.OK, "查询成功", pageResult);
     }
 
+    @Autowired
+    private IdWorker idWorker;
+
+    @GetMapping(value = "/createId")
+    public long createId(){
+        return idWorker.nextId();
+    }
 
 }
