@@ -21,7 +21,7 @@ import java.util.Map;
 public abstract class AbstractIFileService implements FileService {
 
     @Autowired
-    private FileMapper fileMapper;
+    protected FileMapper fileMapper;
 
     private static final String FILE_SPLIT = ".";
 
@@ -54,8 +54,8 @@ public abstract class AbstractIFileService implements FileService {
     }
 
     @Override
-    public void out(String id, OutputStream os) {
-
+    public FileInfo out(String id, OutputStream os) {
+        return null;
     }
 
     /**

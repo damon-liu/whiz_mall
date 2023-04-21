@@ -35,7 +35,7 @@ public class FileInfo implements Serializable {
     /**
      * 文件大小
      */
-    private long size;
+    private Integer size;
     /**
      * 冗余字段
      */

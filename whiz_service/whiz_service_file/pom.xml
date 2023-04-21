@@ -26,6 +26,13 @@
             <version>1.12.40</version>
         </dependency>
 
+        <!-- aliYun s3 -->
+        <dependency>
+            <groupId>com.aliyun.oss</groupId>
+            <artifactId>aliyun-sdk-oss</artifactId>
+            <version>3.8.1</version>
+        </dependency>
+
         <!-- hutool java工具类库  -->
         <dependency>
             <groupId>cn.hutool</groupId>
@@ -44,6 +51,7 @@
             <artifactId>whiz_service_file_api</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+
 
     </dependencies>
 

@@ -17,7 +17,7 @@ public class S3Properties {
     /**
      * 用户名
      */
-    private String accessKey;
+    private String accessKeyId;
     /**
      * 密码
      */
@@ -38,5 +38,10 @@ public class S3Properties {
      * path-style
      */
     private Boolean pathStyleAccessEnabled = true;
+
+    /**
+     * 文件前缀
+     */
+    private String dirPrefix;
 
 }

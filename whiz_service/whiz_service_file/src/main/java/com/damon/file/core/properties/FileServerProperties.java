@@ -3,6 +3,9 @@ package com.damon.file.core.properties;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 
 /**
  * Description:
@@ -12,14 +15,20 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
  */
 @Setter
 @Getter
-@ConditionalOnProperty(prefix = FileServerProperties.PREFIX)
+@Component
+@ConfigurationProperties(prefix = FileServerProperties.PREFIX)
 public class FileServerProperties {
 
-    public static final String PREFIX = "zlt.file-server";
+    public static final String PREFIX = "whiz.file";
+
+    public static final String PREFIX_S3= "whiz.file.s3";
 
     public static final String TYPE_FDFS = "fastdfs";
 
     public static final String TYPE_S3 = "s3";
+    public static final String TYPE_S3_AWS = "aws";
+    public static final String TYPE_S3_ALI_YUN = "aliYun";
+    public static final String TYPE_S3_7NIU_YUN = "qiNiuYun";
 
     /**
      * 为以下2个值，指定不同的自动化配置

@@ -27,7 +27,7 @@ public class FileUtil {
 		fileInfo.setName(file.getOriginalFilename());
 		fileInfo.setContentType(file.getContentType());
 		fileInfo.setIsImg(fileInfo.getContentType().startsWith("image/"));
-		fileInfo.setSize(file.getSize());
+		fileInfo.setSize(((Long) file.getSize()).intValue());
 		fileInfo.setCreateTime(new Date());
 		return fileInfo;
 	}

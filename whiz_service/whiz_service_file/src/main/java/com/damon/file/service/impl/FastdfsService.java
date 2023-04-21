@@ -2,6 +2,7 @@ package com.damon.file.service.impl;
 
 import com.damon.file.core.properties.FileServerProperties;
 import com.damon.file.core.template.FdfsTemplate;
+import com.damon.file.pojo.FileInfo;
 import com.damon.file.pojo.ObjectInfo;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Service;
@@ -40,6 +41,7 @@ public class FastdfsService extends AbstractIFileService{
     }
 
     @Override
-    public void out(String id, OutputStream os) {
+    public FileInfo out(String id, OutputStream os) {
+        return null;
     }
 }

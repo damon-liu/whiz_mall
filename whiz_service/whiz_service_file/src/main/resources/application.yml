@@ -1,0 +1,32 @@
+server:
+  port: 9012
+spring:
+  application:
+    name: file
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/whiz_file?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: 123456
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+whiz:
+  file:
+    type: s3
+    s3:
+      type: aliYun
+      accessKeyId:
+      accessKeySecret:
+      endpoint:
+      bucketName:
+      policyExpire: 3000
+      callback:
+      maxSize: 500
+      dirPrefix: mall/dev/
+
+workerId: 1
+datacenterId: 1
+
+

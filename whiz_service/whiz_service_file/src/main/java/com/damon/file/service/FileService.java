@@ -21,6 +21,6 @@ public interface FileService {
 
     void delete(String id);
 
-    void out(String id, OutputStream os);
+    FileInfo out(String id, OutputStream os);
 
 }
