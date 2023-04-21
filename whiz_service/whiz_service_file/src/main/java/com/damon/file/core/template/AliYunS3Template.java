@@ -16,7 +16,9 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.InputStream;
@@ -29,9 +31,9 @@ import java.util.ArrayList;
  * @author damon.liu
  * Date 2023-04-21 6:37
  */
-// @ConditionalOnClass(OSSClient.class)
-// @ConditionalOnProperty(prefix = FileServerProperties.PREFIX_S3, name = "type", havingValue = FileServerProperties.TYPE_S3_ALI_YUN)
-    @Component
+@Configuration
+@ConditionalOnClass(OSSClient.class)
+@ConditionalOnProperty(prefix = FileServerProperties.PREFIX_S3, name = "type", havingValue = FileServerProperties.TYPE_S3_ALI_YUN)
 public class AliYunS3Template extends AbstractS3Template implements InitializingBean {
 
     private static final String DEF_CONTEXT_TYPE = "application/octet-stream";

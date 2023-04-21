@@ -23,7 +23,6 @@ public class FileUtil {
 
 	public static FileInfo getFileInfo(MultipartFile file) {
 		FileInfo fileInfo = new FileInfo();
-		fileInfo.setId(IdUtil.fastSimpleUUID());
 		fileInfo.setName(file.getOriginalFilename());
 		fileInfo.setContentType(file.getContentType());
 		fileInfo.setIsImg(fileInfo.getContentType().startsWith("image/"));

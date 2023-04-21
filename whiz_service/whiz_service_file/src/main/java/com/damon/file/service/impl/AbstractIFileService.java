@@ -9,6 +9,8 @@ import com.damon.file.util.FileUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Map;
 
@@ -31,6 +33,11 @@ public abstract class AbstractIFileService implements FileService {
         if (!fileInfo.getName().contains(FILE_SPLIT)) {
             throw new IllegalArgumentException("缺少后缀名");
         }
+        byte [] byteArr= file.getBytes();
+        InputStream inputStream = new ByteArrayInputStream(byteArr);
+        String fileMd5 = FileUtil.fileMd5(inputStream);
+        System.out.println("fileMd5:  " + fileMd5);
+        fileInfo.setId(fileMd5);
         ObjectInfo objectInfo = uploadFile(file);
         fileInfo.setPath(objectInfo.getObjectPath());
         fileInfo.setUrl(objectInfo.getObjectUrl());
