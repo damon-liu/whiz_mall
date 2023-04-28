@@ -5,21 +5,18 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.damon</groupId>
-    <artifactId>whiz_mall</artifactId>
+    <artifactId>whiz-mall</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
 
     <modules>
-        <module>whiz_gateway</module>
-        <module>whiz_service</module>
-        <module>whiz_service_api</module>
-        <module>whiz_web</module>
-        <module>whiz_common</module>
-        <module>whiz_common_db</module>
-        <module>whiz_gateway</module>
-        <module>whiz_service</module>
+        <module>whiz-gateway</module>
+        <module>whiz-service</module>
+        <module>whiz-service-api</module>
+        <module>whiz-service</module>
         <module>whiz_oauth_center</module>
-        <module>whiz_commons</module>
+        <module>whiz-commons</module>
+        <module>whiz-web</module>
     </modules>
 
     <parent>
