@@ -18,6 +18,7 @@
         <module>whiz_common_db</module>
         <module>whiz_gateway</module>
         <module>whiz_service</module>
+        <module>whiz_auth_center</module>
     </modules>
 
     <parent>
@@ -32,10 +33,58 @@
         <java.version>1.8</java.version>
         <spring-cloud.version>2020.0.1</spring-cloud.version>
         <spring-cloud-alibaba.version>2021.1</spring-cloud-alibaba.version>
+
+        <hutool.version>5.7.20</hutool.version>
+        <commons-collections4.version>4.4</commons-collections4.version>
+        <mybatis-plus-boot-starter.version>3.5.1</mybatis-plus-boot-starter.version>
     </properties>
 
     <!--依赖包-->
     <dependencies>
+<!--        <dependency>
+            <groupId>com.damon</groupId>
+            <artifactId>whiz_common_db</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.damon</groupId>
+            <artifactId>whiz_common</artifactId>
+            <version>${project.version}</version>
+        </dependency>-->
+
+        <!-- mybatis-plus start -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>${mybatis-plus-boot-starter.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-extension</artifactId>
+            <version>${mybatis-plus-boot-starter.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus</artifactId>
+            <version>${mybatis-plus-boot-starter.version}</version>
+        </dependency>
+
+        <!-- hutool java工具类库  -->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${hutool.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>${commons-collections4.version}</version>
+        </dependency>
         <!--测试包-->
         <dependency>
             <groupId>org.springframework.boot</groupId>

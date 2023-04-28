@@ -16,13 +16,22 @@ whiz:
   file:
     type: s3
     s3:
+#      type: aliYun
+#      accessKeyId:
+#      accessKeySecret:
+#      endpoint:
+#      bucketName:
+#      policyExpire: 3000
+#      callback:
+#      maxSize: 500
+#      dirPrefix: mall/dev/
       type: aliYun
-      accessKeyId:
-      accessKeySecret:
-      endpoint:
-      bucketName:
+      accessKeyId: LTAI4FiX9UuX4QoWaTjzmuRn
+      accessKeySecret: SWkWcJOBLqOVpNMiasnh1JjINtLG06
+      endpoint: oss-cn-shenzhen.aliyuncs.com
+      bucketName: ice-i-synergy
       policyExpire: 3000
-      callback:
+      callback: http://1n80108r97.iok.la:80/oss/ali/callback
       maxSize: 500
       dirPrefix: mall/dev/
 
