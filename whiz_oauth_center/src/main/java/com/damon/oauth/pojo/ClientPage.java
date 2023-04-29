@@ -2,6 +2,8 @@ package com.damon.oauth.pojo;
 
 
 import com.damon.comon.entity.BasePageParams;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * Description:
@@ -9,5 +11,7 @@ import com.damon.comon.entity.BasePageParams;
  * @author damon.liu
  * Date 2023-04-28 14:27
  */
+@Data
+@NoArgsConstructor
 public class ClientPage extends BasePageParams {
 }

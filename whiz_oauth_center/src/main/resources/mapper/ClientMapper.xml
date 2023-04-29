@@ -5,41 +5,41 @@
 
     <sql id="where">
         <where>
-            <if test="params.clientId!= null and params.clientId != ''">
-                and client_id = #{params.clientId}
+            <if test="clientId!= null and clientId != ''">
+                and client_id = #{clientId}
             </if>
-            <if test="params.resourceIds != null and params.resourceIds != ''">
-                and resource_ids = #{params.resourceIds}
+            <if test="resourceIds != null and resourceIds != ''">
+                and resource_ids = #{resourceIds}
             </if>
-            <if test="params.clientSecret != null and params.clientSecret != ''">
-                and client_secret = #{params.clientSecret}
+            <if test="clientSecret != null and clientSecret != ''">
+                and client_secret = #{clientSecret}
             </if>
-            <if test="params.scope != null and params.scope != ''">
-                and scope = #{params.scope}
+            <if test="scope != null and scope != ''">
+                and scope = #{scope}
             </if>
-            <if test="params.authorizedGrantTypes != null and params.authorizedGrantTypes != ''">
-                and authorized_grant_types = #{params.authorizedGrantTypes}
+            <if test="authorizedGrantTypes != null and authorizedGrantTypes != ''">
+                and authorized_grant_types = #{authorizedGrantTypes}
             </if>
-            <if test="params.webServerRedirectUri != null and params.webServerRedirectUri != ''">
-                and web_server_redirect_uri = #{params.webServerRedirectUri}
+            <if test="webServerRedirectUri != null and webServerRedirectUri != ''">
+                and web_server_redirect_uri = #{webServerRedirectUri}
             </if>
-            <if test="params.authorities != null and params.authorities != ''">
-                and authorities = #{params.authorities}
+            <if test="authorities != null and authorities != ''">
+                and authorities = #{authorities}
             </if>
-            <if test="params.accessTokenValidity != null and params.accessTokenValidity != ''">
-                and access_token_validity = #{params.accessTokenValidity}
+            <if test="accessTokenValidity != null and accessTokenValidity != ''">
+                and access_token_validity = #{accessTokenValidity}
             </if>
-            <if test="params.refreshTokenValidity != null and params.refreshTokenValidity != ''">
-                and refresh_token_validity = #{params.refreshTokenValidity}
+            <if test="refreshTokenValidity != null and refreshTokenValidity != ''">
+                and refresh_token_validity = #{refreshTokenValidity}
             </if>
-            <if test="params.additionalInformation != null and params.additionalInformation != ''">
-                and additional_information = #{params.additionalInformation}
+            <if test="additionalInformation != null and additionalInformation != ''">
+                and additional_information = #{additionalInformation}
             </if>
-            <if test="params.autoapprove != null and params.autoapprove != ''">
-                and autoapprove = #{params.autoapprove}
+            <if test="autoapprove != null and autoapprove != ''">
+                and autoapprove = #{autoapprove}
             </if>
-            <if test="params.searchKey != null and params.searchKey != ''">
-                and client_id like concat('%', #{params.searchKey}, '%')
+            <if test="searchKey != null and searchKey != ''">
+                and client_id like concat('%', #{searchKey}, '%')
             </if>
         </where>
     </sql>
@@ -52,6 +52,5 @@
             , refresh_token_validity refreshTokenValiditySeconds
             , support_id_token, refresh_token_validity
         from oauth_client_details
-        <include refid="where"/>
     </select>
 </mapper>

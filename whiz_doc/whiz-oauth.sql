@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS `whiz-oauth-center` DEFAULT CHARACTER SET = utf8;
-Use `oauth-center`;
+CREATE DATABASE IF NOT EXISTS `whiz_oauth` DEFAULT CHARACTER SET = utf8;
+Use `whiz_oauth`;
 
 -- ----------------------------
 -- Table structure for oauth_client_details
