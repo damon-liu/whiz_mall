@@ -1,19 +1,27 @@
 spring:
   application:
-    name: sysgateway
+    name: whiz-gateway
   cloud:
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
     gateway:
       routes:
-        - id: goods
-          uri: lb://goods
+        - id: oauth
+          uri: lb://whiz-oauth
           predicates:
-            - Path=/goods/**
+            - Path=/api-oauth/**
           filters:
             - StripPrefix= 1
-        - id: system
+
+        - id: goods
+          uri: lb://whiz-goods
+          predicates:
+            - Path=/api-goods/**
+          filters:
+            - StripPrefix= 1
+
+        - id: whiz-system
           uri: lb://system
           predicates:
             - Path=/system/**
@@ -27,4 +35,4 @@ spring:
     name: root
     password: 123456
 server:
-  port: 9101
+  port: 1001

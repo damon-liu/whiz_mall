@@ -2,7 +2,7 @@ server:
   port: 1002
 spring:
   application:
-    name: auth
+    name: whiz-oauth
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/whiz_oauth?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC

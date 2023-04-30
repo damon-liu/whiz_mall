@@ -22,7 +22,7 @@ import javax.validation.Valid;
  */
 
 @RestController
-@RequestMapping("/oauth/client")
+@RequestMapping("/client")
 @Api(tags = "客户端")
 public class ClientController {
 
