@@ -1,7 +1,7 @@
 package com.damon.oauth.controller;
 
 import com.damon.common.redis.resubmit.ReSubmitAnno;
-import com.damon.comon.component.version.ApiVersion;
+import com.damon.comon.component.apiversion.ApiVersion;
 import com.damon.oauth.pojo.Client;
 import com.damon.oauth.pojo.ClientPage;
 import com.damon.oauth.service.ClientService;
@@ -9,7 +9,6 @@ import com.github.pagehelper.PageInfo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;

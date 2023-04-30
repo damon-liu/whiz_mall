@@ -1,4 +1,4 @@
-package com.damon.comon.component.version;
+package com.damon.comon.component.apiversion;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.annotation.AnnotationUtils;

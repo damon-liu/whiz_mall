@@ -1,4 +1,4 @@
-package com.damon.comon.component.version;
+package com.damon.comon.component.apiversion;
 
 import java.lang.annotation.*;
 
