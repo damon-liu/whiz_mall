@@ -1,5 +1,6 @@
 package com.damon.oauth.controller;
 
+import com.damon.comon.component.version.ApiVersion;
 import com.damon.oauth.pojo.Client;
 import com.damon.oauth.pojo.ClientPage;
 import com.damon.oauth.service.ClientService;
@@ -32,6 +33,14 @@ public class ClientController {
     @GetMapping("/page")
     @ApiOperation(value = "分页列表")
     public PageInfo<Client> pageListClient(@Valid @ModelAttribute ClientPage clientPage) {
+        return clientService.pageListClient(clientPage);
+    }
+
+    @GetMapping("/page")
+    @ApiOperation(value = "分页列表")
+    @ApiVersion(value = 2)
+    public PageInfo<Client> pageListClientV2(@Valid @ModelAttribute ClientPage clientPage) {
+        System.out.println("访问接口版本2");
         return clientService.pageListClient(clientPage);
     }
 
