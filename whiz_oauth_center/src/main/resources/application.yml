@@ -13,5 +13,11 @@ spring:
       discovery:
         server-addr: 127.0.0.1:8848
 
+  redis:
+    host: 127.0.0.1
+    username: root
+    password: 123456
+    port: 6379
+
 workerId: 0
 datacenterId: 0

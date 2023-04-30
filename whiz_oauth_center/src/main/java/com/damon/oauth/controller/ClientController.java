@@ -1,5 +1,6 @@
 package com.damon.oauth.controller;
 
+import com.damon.common.redis.resubmit.ReSubmitAnno;
 import com.damon.comon.component.version.ApiVersion;
 import com.damon.oauth.pojo.Client;
 import com.damon.oauth.pojo.ClientPage;
@@ -32,6 +33,7 @@ public class ClientController {
 
     @GetMapping("/page")
     @ApiOperation(value = "分页列表")
+    @ReSubmitAnno
     public PageInfo<Client> pageListClient(@Valid @ModelAttribute ClientPage clientPage) {
         return clientService.pageListClient(clientPage);
     }
