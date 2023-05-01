@@ -1,4 +1,4 @@
-package com.damon.comon.util;
+package com.damon.comon.utils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

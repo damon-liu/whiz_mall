@@ -1,4 +1,4 @@
-package com.damon.comon.util;
+package com.damon.comon.utils;
 
 import javax.servlet.http.HttpServletRequest;
 import java.net.InetAddress;

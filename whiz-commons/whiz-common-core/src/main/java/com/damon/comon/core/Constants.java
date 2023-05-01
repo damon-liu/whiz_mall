@@ -16,5 +16,10 @@ public interface Constants {
     //秒杀用户key
     String SECKILL_USER_KEY = "seckill_user_";
 
+    /**
+     * 项目版本号(banner使用)
+     */
+    String PROJECT_VERSION = "1.0-SNAPSHOT";
+
     String LOCK_KEY_PREFIX = "LOCK_KEY";
 }

@@ -1,4 +1,4 @@
-package com.damon.comon.util;
+package com.damon.comon.utils;
 
 import java.lang.management.ManagementFactory;
 import java.net.InetAddress;
