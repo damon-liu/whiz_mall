@@ -14,7 +14,7 @@ import reactor.core.publisher.Mono;
  * @author damon.liu
  * Date 2023-04-17 8:24
  */
-@Component
+// @Component
 public class UrlFilter implements GlobalFilter, Ordered {
 
     @Override

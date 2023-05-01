@@ -17,7 +17,7 @@ import java.net.InetSocketAddress;
  * Date 2023-04-17 8:23
  */
 
-@Component
+// @Component
 public class IpFilter implements GlobalFilter, Ordered {
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {

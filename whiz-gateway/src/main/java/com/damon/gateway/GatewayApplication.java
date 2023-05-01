@@ -26,27 +26,14 @@ public class GatewayApplication {
         SpringApplication.run(GatewayApplication.class);
     }
 
-    @Bean
-    public CorsWebFilter corsFilter() {
-        CorsConfiguration config = new CorsConfiguration();
-        config.addAllowedMethod("*");//支持所有方法
-        config.addAllowedOrigin("*");//跨域处理 允许所有的域
-        config.addAllowedHeader("*");//支持所有请求头
-
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource(new PathPatternParser());
-        source.registerCorsConfiguration("/**", config);//匹配所有请求
-
-        return new CorsWebFilter(source);
-    }
-
-    @Bean
-    public KeyResolver ipKeyResolver() {
-        return new KeyResolver() {
-            @Override
-            public Mono<String> resolve(ServerWebExchange exchange) {
-                return Mono.just(exchange.getRequest().getRemoteAddress().getHostName());
-            }
-        };
-    }
+    // @Bean
+    // public KeyResolver ipKeyResolver() {
+    //     return new KeyResolver() {
+    //         @Override
+    //         public Mono<String> resolve(ServerWebExchange exchange) {
+    //             return Mono.just(exchange.getRequest().getRemoteAddress().getHostName());
+    //         }
+    //     };
+    // }
 
 }

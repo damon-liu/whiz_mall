@@ -1,0 +1,30 @@
+[{
+    "id": "oauth",
+    "order": 0,
+    "predicates": [{
+        "args": {
+            "pattern": "/api-oauth/**"
+        },
+        "name": "Path"
+    }],
+    "uri": "lb://whiz-oauth",
+    "filters": [
+            {
+                "args": {
+                    "parts": "1"
+                },
+                "name": "StripPrefix"
+            }
+        ]
+},
+{
+    "id": "sina",
+    "order": 2,
+    "predicates": [{
+        "args": {
+            "pattern": "/sina/**"
+        },
+        "name": "Path"
+    }],
+    "uri": "http://www.sina.com.cn"
+}]

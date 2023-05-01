@@ -19,7 +19,7 @@ import reactor.core.publisher.Mono;
  * @author damon.liu
  * Date 2023-04-17 9:00
  */
-@Component
+// @Component
 public class AuthFilter implements GlobalFilter, Ordered {
 
     private static final String AUTHORIZE_TOKEN = "token";
