@@ -1,7 +1,7 @@
 package com.damon.oauth.pojo;
 
 
-import com.damon.comon.entity.BasePageParams;
+import com.damon.common.entity.BasePageParams;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

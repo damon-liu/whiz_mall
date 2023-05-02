@@ -1,7 +1,7 @@
 package com.damon.oauth.controller;
 
 import com.damon.common.redis.resubmit.ReSubmitAnno;
-import com.damon.comon.component.apiversion.ApiVersion;
+import com.damon.common.component.apiversion.ApiVersion;
 import com.damon.oauth.pojo.Client;
 import com.damon.oauth.pojo.ClientPage;
 import com.damon.oauth.service.ClientService;

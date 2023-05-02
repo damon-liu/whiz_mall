@@ -1,6 +1,6 @@
 org.springframework.context.ApplicationContextInitializer=\
-com.damon.comon.component.banner.BannerInitializer
+com.damon.common.component.banner.BannerInitializer
 
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.damon.comon.component.apiversion.WebApiVersionConfig,\
-com.damon.comon.utils.SpringUtil
+com.damon.common.component.apiversion.WebApiVersionConfig,\
+com.damon.common.utils.SpringUtil

@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>whiz-service-base-api</module>
         <module>whiz-service-goods-api</module>
         <module>whiz-service-system-api</module>
         <module>whiz-service-order-api</module>

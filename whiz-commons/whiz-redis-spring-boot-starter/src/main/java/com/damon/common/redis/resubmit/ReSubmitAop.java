@@ -2,7 +2,7 @@ package com.damon.common.redis.resubmit;
 
 import cn.hutool.crypto.SecureUtil;
 import com.alibaba.fastjson.JSON;
-import com.damon.comon.utils.IpUtil;
+import com.damon.common.utils.IpUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;

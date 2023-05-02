@@ -1,9 +1,9 @@
 package com.damon.common.redis.lock;
 
-import com.damon.comon.component.lock.DistributedLock;
-import com.damon.comon.component.lock.LockException;
-import com.damon.comon.component.lock.ZLock;
-import com.damon.comon.core.Constants;
+import com.damon.common.component.lock.DistributedLock;
+import com.damon.common.component.lock.LockException;
+import com.damon.common.component.lock.ZLock;
+import com.damon.common.constant.CommonConstant;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,9 +28,9 @@ public class RedissonDistributedLock implements DistributedLock {
     private ZLock getLock(String key, boolean isFair) {
         RLock lock;
         if (isFair) {
-            lock = redisson.getFairLock(Constants.LOCK_KEY_PREFIX + ":" + key);
+            lock = redisson.getFairLock(CommonConstant.LOCK_KEY_PREFIX + ":" + key);
         } else {
-            lock =  redisson.getLock(Constants.LOCK_KEY_PREFIX + ":" + key);
+            lock =  redisson.getLock(CommonConstant.LOCK_KEY_PREFIX + ":" + key);
         }
         return new ZLock(lock, this);
     }
