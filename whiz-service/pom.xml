@@ -16,6 +16,7 @@
 <!--        <module>whiz-service-goods</module>-->
         <module>whiz-service-base</module>
         <module>whiz-service-file</module>
+        <module>whiz-canal</module>
 <!--        <module>whiz-service-system</module>
         <module>whiz-service-order</module>
         <module>whiz-service-consume</module>
