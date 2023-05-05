@@ -13,14 +13,14 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>whiz-service-goods</module>
+<!--        <module>whiz-service-goods</module>-->
         <module>whiz-service-base</module>
-        <module>whiz-service-system</module>
+        <module>whiz-service-file</module>
+<!--        <module>whiz-service-system</module>
         <module>whiz-service-order</module>
         <module>whiz-service-consume</module>
         <module>whiz-service-config</module>
-        <module>whiz-service-business</module>
-        <module>whiz-service-file</module>
+        <module>whiz-service-business</module>-->
     </modules>
 
 </project>

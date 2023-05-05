@@ -1,7 +1,7 @@
 package com.damon.file.service;
 
-import com.damon.entity.PageResult;
 import com.damon.file.pojo.FileInfo;
+import com.github.pagehelper.PageInfo;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.OutputStream;
@@ -15,9 +15,9 @@ import java.util.Map;
  */
 public interface FileService {
 
-    FileInfo upload(MultipartFile file ) throws Exception;
+    FileInfo upload(MultipartFile file) throws Exception;
 
-    PageResult<FileInfo> findList(Map<String, Object> params);
+    PageInfo<FileInfo> findList(Map<String, Object> params);
 
     void delete(String id);
 

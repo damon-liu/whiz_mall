@@ -1,6 +1,6 @@
 package com.damon.file.core.template;
 
-import com.damon.file.pojo.ObjectInfo;
+import com.damon.file.pojo.FileDetail;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.InputStream;
@@ -27,11 +27,11 @@ public abstract class AbstractS3Template {
      *
      * @param file
      */
-    public abstract ObjectInfo upload(MultipartFile file);
+    public abstract FileDetail upload(MultipartFile file);
 
-    public abstract ObjectInfo upload(String fileName, InputStream is);
+    public abstract FileDetail upload(String fileName, InputStream is);
 
-    public abstract ObjectInfo upload(String bucketName, String fileName, InputStream is);
+    public abstract FileDetail upload(String bucketName, String fileName, InputStream is);
 
     /**
      * 删除文件资源

@@ -2,7 +2,7 @@ package com.damon.file.core.template;
 
 import cn.hutool.core.util.StrUtil;
 import com.damon.file.core.properties.FileServerProperties;
-import com.damon.file.pojo.ObjectInfo;
+import com.damon.file.pojo.FileDetail;
 import com.github.tobato.fastdfs.domain.fdfs.StorePath;
 import com.github.tobato.fastdfs.domain.proto.storage.DownloadCallback;
 import com.github.tobato.fastdfs.service.FastFileStorageClient;
@@ -33,12 +33,12 @@ public class FdfsTemplate {
     private FastFileStorageClient storageClient;
 
     @SneakyThrows
-    public ObjectInfo upload(String objectName, InputStream is) {
+    public FileDetail upload(String objectName, InputStream is) {
         return upload(objectName, is, is.available());
     }
 
     @SneakyThrows
-    public ObjectInfo upload(MultipartFile file) {
+    public FileDetail upload(MultipartFile file) {
         return upload(file.getOriginalFilename(), file.getInputStream(), file.getSize());
     }
 
@@ -48,9 +48,9 @@ public class FdfsTemplate {
      * @param is 对象流
      * @param size 大小
      */
-    private ObjectInfo upload(String objectName, InputStream is, long size) {
+    private FileDetail upload(String objectName, InputStream is, long size) {
         StorePath storePath = storageClient.uploadFile(is, size, FilenameUtils.getExtension(objectName), null);
-        ObjectInfo obj = new ObjectInfo();
+        FileDetail obj = new FileDetail();
         obj.setObjectPath(storePath.getFullPath());
         obj.setObjectUrl("http://" + fileProperties.getFdfs().getWebUrl() + "/" + storePath.getFullPath());
         return obj;

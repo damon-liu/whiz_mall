@@ -1,17 +1,14 @@
 server:
-  port: 9012
+  port: 2020
 spring:
   application:
-    name: file
+    name: whiz-file
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/whiz_file?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
-    username: root
-    password: 123456
-  cloud:
-    nacos:
-      discovery:
-        server-addr: 127.0.0.1:8848
+    url: jdbc:mysql://${whiz.datasource.ip}:3306/whiz-file?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username: ${whiz.datasource.username}
+    password: ${whiz.datasource.password}
+
 whiz:
   file:
     type: s3
@@ -25,17 +22,7 @@ whiz:
 #      callback:
 #      maxSize: 500
 #      dirPrefix: mall/dev/
-      type: aliYun
-      accessKeyId: LTAI4FiX9UuX4QoWaTjzmuRn
-      accessKeySecret: SWkWcJOBLqOVpNMiasnh1JjINtLG06
-      endpoint: oss-cn-shenzhen.aliyuncs.com
-      bucketName: ice-i-synergy
-      policyExpire: 3000
-      callback: http://1n80108r97.iok.la:80/oss/ali/callback
-      maxSize: 500
-      dirPrefix: mall/dev/
 
-workerId: 1
-datacenterId: 1
+
 
 

@@ -1,25 +1,28 @@
 package com.damon.file.pojo;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
-import javax.persistence.Id;
-import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Date;
 
 /**
  * file实体类
  */
-@EqualsAndHashCode(callSuper = false)
-@Table(name = "file_info")
+@TableName("file_info")
 @Data
 public class FileInfo implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Id
+    /**
+     * 主键
+     */
+    @TableId(value = "id", type = IdType.INPUT)
     private String id;
+
     /**
      * 原始文件名
      */

@@ -1,11 +1,10 @@
 package com.damon.file.service.impl;
 
 import cn.hutool.core.util.StrUtil;
-import com.amazonaws.services.s3.model.S3Object;
 import com.damon.file.core.properties.FileServerProperties;
 import com.damon.file.core.template.AbstractS3Template;
 import com.damon.file.pojo.FileInfo;
-import com.damon.file.pojo.ObjectInfo;
+import com.damon.file.pojo.FileDetail;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +33,7 @@ public class S3Service extends AbstractIFileService{
     }
 
     @Override
-    protected ObjectInfo uploadFile(MultipartFile file) {
+    protected FileDetail uploadFile(MultipartFile file) {
         return s3Template.upload(file);
     }
 
@@ -46,7 +45,7 @@ public class S3Service extends AbstractIFileService{
 
     @Override
     public FileInfo out(String id, OutputStream os) {
-        FileInfo fileInfo = fileMapper.selectByPrimaryKey(id);
+        FileInfo fileInfo = fileMapper.selectById(id);
         if (fileInfo != null) {
             S3Object s3Object = parsePath(fileInfo.getPath());
             s3Template.out(s3Object.bucketName, s3Object.objectName, os);

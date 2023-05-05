@@ -1,9 +1,11 @@
 package com.damon.base.service.impl;
 
 import cn.hutool.core.util.StrUtil;
+import cn.hutool.db.PageResult;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.damon.base.entity.SysRoleUser;
+import com.damon.base.entity.SysUserPage;
 import com.damon.base.mapper.SysRoleMenuMapper;
 import com.damon.base.mapper.SysUserMapper;
 import com.damon.base.service.ISysRoleUserService;
@@ -13,6 +15,8 @@ import com.damon.common.constant.CommonConstant;
 import com.damon.common.core.enums.UserType;
 import com.damon.common.entity.*;
 import com.damon.common.service.impl.SuperServiceImpl;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.MapUtils;
 import org.apache.commons.lang3.ObjectUtils;
@@ -183,18 +187,10 @@ public class SysUserServiceImpl extends SuperServiceImpl<SysUserMapper, SysUser>
     }
 
     @Override
-    public PageResult<SysUser> findUsers(Map<String, Object> params) {
-        Page<SysUser> page = new Page<>(MapUtils.getInteger(params, "page"), MapUtils.getInteger(params, "limit"));
-        List<SysUser> list = userMapper.findList(page, params);
-        long total = page.getTotal();
-        if (total > 0) {
-            List<Long> userIds = list.stream().map(SysUser::getId).collect(Collectors.toList());
-
-            List<SysRole> sysRoles = roleUserService.findRolesByUserIds(userIds);
-            list.forEach(u -> u.setRoles(sysRoles.stream().filter(r -> !ObjectUtils.notEqual(u.getId(), r.getUserId()))
-                    .collect(Collectors.toList())));
-        }
-        return PageResult.<SysUser>builder().data(list).code(0).count(total).build();
+    public PageInfo<SysUser> findUsers(SysUserPage page) {
+        PageHelper.startPage(page.getPageNum(), page.getPageSize());
+        List<SysUser> list = userMapper.findList(page);
+        return new PageInfo<>(list);
     }
 
     @Override

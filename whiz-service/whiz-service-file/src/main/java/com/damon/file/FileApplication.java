@@ -1,9 +1,9 @@
 package com.damon.file;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import tk.mybatis.spring.annotation.MapperScan;
 
 /**
  * Description:
@@ -13,7 +13,7 @@ import tk.mybatis.spring.annotation.MapperScan;
  */
 @SpringBootApplication
 @EnableDiscoveryClient
-@MapperScan(basePackages = {"com.damon.file.dao"})
+@MapperScan(basePackages = {"com.damon.file.mapper"})
 public class FileApplication {
     public static void main(String[] args) {
         SpringApplication.run(FileApplication.class, args);

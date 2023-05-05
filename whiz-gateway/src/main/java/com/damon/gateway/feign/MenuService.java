@@ -2,6 +2,7 @@ package com.damon.gateway.feign;
 
 import com.damon.common.constant.ServiceNameConstants;
 import com.damon.common.entity.SysMenu;
+import com.damon.gateway.feign.fallback.MenuServiceFallbackFactory;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

@@ -1,8 +1,10 @@
 package com.damon.base.service;
 
 
+import com.damon.base.entity.SysUserPage;
 import com.damon.common.entity.*;
 import com.damon.common.service.ISuperService;
+import com.github.pagehelper.PageInfo;
 
 import java.util.List;
 import java.util.Map;
@@ -75,10 +77,10 @@ public interface ISysUserService extends ISuperService<SysUser> {
 
     /**
      * 用户列表
-     * @param params
+     * @param page
      * @return
      */
-    PageResult<SysUser> findUsers(Map<String, Object> params);
+    PageInfo<SysUser> findUsers(SysUserPage page);
 
 
     /**

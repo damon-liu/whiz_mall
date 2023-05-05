@@ -27,7 +27,6 @@
     <select id="findList" resultType="com.damon.common.entity.SysRole">
         select <include refid="Column_List"/>
         from sys_role t
-        <include refid="where" />
         order by t.create_time desc
     </select>
 

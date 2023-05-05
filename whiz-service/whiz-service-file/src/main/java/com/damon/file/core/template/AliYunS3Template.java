@@ -10,15 +10,13 @@ import com.aliyun.oss.model.PutObjectRequest;
 import com.aliyun.oss.model.SetBucketCORSRequest;
 import com.amazonaws.util.IOUtils;
 import com.damon.file.core.properties.FileServerProperties;
-import com.damon.file.pojo.ObjectInfo;
+import com.damon.file.pojo.FileDetail;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.InputStream;
@@ -71,20 +69,20 @@ public class AliYunS3Template extends AbstractS3Template implements Initializing
 
     @SneakyThrows
     @Override
-    public ObjectInfo upload(MultipartFile file) {
+    public FileDetail upload(MultipartFile file) {
         return upload(fileProperties.getS3().getBucketName(), file.getOriginalFilename(), file.getInputStream()
                 , ((Long) file.getSize()).intValue(), file.getContentType());
     }
 
     @SneakyThrows
     @Override
-    public ObjectInfo upload(String fileName, InputStream is) {
+    public FileDetail upload(String fileName, InputStream is) {
         return upload(fileProperties.getS3().getBucketName(), fileName, is, is.available(), DEF_CONTEXT_TYPE);
     }
 
     @SneakyThrows
     @Override
-    public ObjectInfo upload(String bucketName, String fileName, InputStream is) {
+    public FileDetail upload(String bucketName, String fileName, InputStream is) {
         return upload(bucketName, fileName, is, is.available(), DEF_CONTEXT_TYPE);
     }
 
@@ -124,7 +122,7 @@ public class AliYunS3Template extends AbstractS3Template implements Initializing
      * @param size        大小
      * @param contentType 类型
      */
-    private ObjectInfo upload(String bucketName, String objectName, InputStream is, int size, String contentType) {
+    private FileDetail upload(String bucketName, String objectName, InputStream is, int size, String contentType) {
         String dirPrefix = fileProperties.getS3().getDirPrefix();
         String folder = "";
         if (StrUtil.isNotBlank(dirPrefix)) {
@@ -138,7 +136,7 @@ public class AliYunS3Template extends AbstractS3Template implements Initializing
         PutObjectRequest putObjectRequest = new PutObjectRequest(bucketName, folder + objectName, is, objectMetadata);
         ossClient.putObject(putObjectRequest);
 
-        ObjectInfo obj = new ObjectInfo();
+        FileDetail obj = new FileDetail();
         String objectUrl = "http://" + bucketName + "." + fileProperties.getS3().getEndpoint() + PATH_SPLIT + folder + objectName;
         String objectPath = bucketName + PATH_SPLIT + folder + objectName;
         obj.setObjectPath(objectPath);

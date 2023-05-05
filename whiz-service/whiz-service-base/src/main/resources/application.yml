@@ -1,21 +1,10 @@
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://192.168.200.128:3306/whiz-user?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
-    username: root
-    password: hero@202207
-  main:
-    allow-bean-definition-overriding: true #当遇到同样名字的时候，是否允许覆盖注册
-  cloud:
-    nacos:
-      discovery:
-        server-addr: 127.0.0.1:8848
+    url: jdbc:mysql://${whiz.datasource.ip}:3306/whiz-base?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username: ${whiz.datasource.username}
+    password: ${whiz.datasource.password}
 
-  redis:
-    host: 127.0.0.1
-    username: root
-    password: 123456
-    port: 6379
 
 feign:
   client:

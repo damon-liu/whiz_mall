@@ -1,13 +1,13 @@
 package com.damon.base.service;
 
 
-import com.damon.common.entity.PageResult;
+import com.damon.base.entity.SysRolePage;
 import com.damon.common.entity.Result;
 import com.damon.common.entity.SysRole;
 import com.damon.common.service.ISuperService;
+import com.github.pagehelper.PageInfo;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * Description:
@@ -23,13 +23,15 @@ public interface ISysRoleService extends ISuperService<SysRole> {
 
     /**
      * 角色列表
-     * @param params
+     *
+     * @param page
      * @return
      */
-    PageResult<SysRole> findRoles(Map<String, Object> params);
+    PageInfo<SysRole> findRoles(SysRolePage page);
 
     /**
      * 新增或更新角色
+     *
      * @param sysRole
      * @return Result
      */
@@ -37,6 +39,7 @@ public interface ISysRoleService extends ISuperService<SysRole> {
 
     /**
      * 查询所有角色
+     *
      * @return
      */
     List<SysRole> findAll();

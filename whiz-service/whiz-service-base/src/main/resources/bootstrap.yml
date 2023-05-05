@@ -4,8 +4,3 @@ server:
 spring:
   application:
     name: whiz-base
-#  cloud:
-#    nacos:
-#      discovery:
-#        metadata:
-#          version: zlt

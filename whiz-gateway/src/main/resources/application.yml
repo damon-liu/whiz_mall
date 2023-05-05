@@ -2,7 +2,9 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 127.0.0.1:8848
+        locator:
+          lowerCaseServiceId: true
+          enabled: true
     gateway:
       routes:
 #        - id: oauth
@@ -25,26 +27,8 @@ spring:
           filters:
             - StripPrefix= 1
 
-  # 配置Redis 127.0.0.1可以省略配置
-  redis:
-    host: 127.0.0.1
-    port: 6379
-    name: root
-    password: 123456
-
 whiz:
   gateway:
     #网关动态路由
     dynamicRoute:
       enabled: true
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: '*'
-  endpoint:
-    gateway:
-      enabled: true
-    health:
-      show-details: always

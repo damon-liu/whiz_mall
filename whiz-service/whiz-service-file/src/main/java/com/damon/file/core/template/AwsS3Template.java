@@ -14,7 +14,7 @@ import com.amazonaws.services.s3.model.S3Object;
 import com.amazonaws.services.s3.model.S3ObjectInputStream;
 import com.amazonaws.util.IOUtils;
 import com.damon.file.core.properties.FileServerProperties;
-import com.damon.file.pojo.ObjectInfo;
+import com.damon.file.pojo.FileDetail;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,18 +63,18 @@ public class AwsS3Template extends AbstractS3Template implements InitializingBea
     }
 
     @Override
-    public ObjectInfo upload(MultipartFile file) {
+    public FileDetail upload(MultipartFile file) {
         return null;
     }
 
     @SneakyThrows
     @Override
-    public ObjectInfo upload(String fileName, InputStream is) {
+    public FileDetail upload(String fileName, InputStream is) {
         return upload(fileProperties.getS3().getBucketName(), fileName, is, is.available(), DEF_CONTEXT_TYPE);
     }
 
     @Override
-    public ObjectInfo upload(String bucketName, String fileName, InputStream is) {
+    public FileDetail upload(String bucketName, String fileName, InputStream is) {
         return null;
     }
 
@@ -113,7 +113,7 @@ public class AwsS3Template extends AbstractS3Template implements InitializingBea
      * @param size        大小
      * @param contentType 类型
      */
-    private ObjectInfo upload(String bucketName, String objectName, InputStream is, int size, String contentType) {
+    private FileDetail upload(String bucketName, String objectName, InputStream is, int size, String contentType) {
         com.amazonaws.services.s3.model.ObjectMetadata objectMetadata = new ObjectMetadata();
         objectMetadata.setContentLength(size);
         objectMetadata.setContentType(contentType);
@@ -122,7 +122,7 @@ public class AwsS3Template extends AbstractS3Template implements InitializingBea
         putObjectRequest.getRequestClientOptions().setReadLimit(size + 1);
         amazonS3.putObject(putObjectRequest);
 
-        ObjectInfo obj = new ObjectInfo();
+        FileDetail obj = new FileDetail();
         obj.setObjectPath(bucketName + PATH_SPLIT + objectName);
         obj.setObjectUrl(fileProperties.getS3().getEndpoint() + PATH_SPLIT + obj.getObjectPath());
         return obj;

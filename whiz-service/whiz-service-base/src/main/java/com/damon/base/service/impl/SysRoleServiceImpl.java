@@ -2,25 +2,24 @@ package com.damon.base.service.impl;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.damon.base.entity.SysRolePage;
 import com.damon.base.mapper.SysRoleMapper;
 import com.damon.base.mapper.SysRoleMenuMapper;
 import com.damon.base.mapper.SysUserRoleMapper;
 import com.damon.base.service.ISysRoleService;
 import com.damon.common.component.lock.DistributedLock;
-import com.damon.common.entity.PageResult;
 import com.damon.common.entity.Result;
 import com.damon.common.entity.SysRole;
 import com.damon.common.service.impl.SuperServiceImpl;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.collections4.MapUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Description:
@@ -51,7 +50,7 @@ public class SysRoleServiceImpl extends SuperServiceImpl<SysRoleMapper, SysRole>
     public void saveRole(SysRole sysRole) throws Exception {
         String roleCode = sysRole.getCode();
         super.saveIdempotency(sysRole, lock
-                , LOCK_KEY_ROLECODE+roleCode, new QueryWrapper<SysRole>().eq("code", roleCode), "角色code已存在");
+                , LOCK_KEY_ROLECODE + roleCode, new QueryWrapper<SysRole>().eq("code", roleCode), "角色code已存在");
     }
 
     @Transactional(rollbackFor = Exception.class)
@@ -63,12 +62,10 @@ public class SysRoleServiceImpl extends SuperServiceImpl<SysRoleMapper, SysRole>
     }
 
     @Override
-    public PageResult<SysRole> findRoles(Map<String, Object> params) {
-        Integer curPage = MapUtils.getInteger(params, "page");
-        Integer limit = MapUtils.getInteger(params, "limit");
-        Page<SysRole> page = new Page<>(curPage == null ? 0 : curPage, limit == null ? -1 : limit);
-        List<SysRole> list = roleMapper.findList(page, params);
-        return PageResult.<SysRole>builder().data(list).code(0).count(page.getTotal()).build();
+    public PageInfo<SysRole> findRoles(SysRolePage page) {
+        PageHelper.startPage(page.getPageNum(), page.getPageSize());
+        List<SysRole> list = roleMapper.findList(page);
+        return new PageInfo<>(list);
     }
 
     @Override

@@ -1,11 +1,11 @@
 package com.damon.file.service.impl;
 
-import com.damon.entity.PageResult;
-import com.damon.file.dao.FileMapper;
+import com.damon.file.mapper.FileMapper;
 import com.damon.file.pojo.FileInfo;
-import com.damon.file.pojo.ObjectInfo;
+import com.damon.file.pojo.FileDetail;
 import com.damon.file.service.FileService;
 import com.damon.file.util.FileUtil;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -33,12 +33,12 @@ public abstract class AbstractIFileService implements FileService {
         if (!fileInfo.getName().contains(FILE_SPLIT)) {
             throw new IllegalArgumentException("缺少后缀名");
         }
-        byte [] byteArr= file.getBytes();
+        byte[] byteArr = file.getBytes();
         InputStream inputStream = new ByteArrayInputStream(byteArr);
         String fileMd5 = FileUtil.fileMd5(inputStream);
         System.out.println("fileMd5:  " + fileMd5);
         fileInfo.setId(fileMd5);
-        ObjectInfo objectInfo = uploadFile(file);
+        FileDetail objectInfo = uploadFile(file);
         fileInfo.setPath(objectInfo.getObjectPath());
         fileInfo.setUrl(objectInfo.getObjectUrl());
 
@@ -51,7 +51,7 @@ public abstract class AbstractIFileService implements FileService {
     }
 
     @Override
-    public PageResult<FileInfo> findList(Map<String, Object> params) {
+    public PageInfo<FileInfo> findList(Map<String, Object> params) {
         return null;
     }
 
@@ -77,7 +77,7 @@ public abstract class AbstractIFileService implements FileService {
      *
      * @param file
      */
-    protected abstract ObjectInfo uploadFile(MultipartFile file);
+    protected abstract FileDetail uploadFile(MultipartFile file);
 
     /**
      * 删除文件资源

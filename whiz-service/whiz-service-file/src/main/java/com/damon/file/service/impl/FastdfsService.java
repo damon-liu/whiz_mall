@@ -3,7 +3,7 @@ package com.damon.file.service.impl;
 import com.damon.file.core.properties.FileServerProperties;
 import com.damon.file.core.template.FdfsTemplate;
 import com.damon.file.pojo.FileInfo;
-import com.damon.file.pojo.ObjectInfo;
+import com.damon.file.pojo.FileDetail;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -31,7 +31,7 @@ public class FastdfsService extends AbstractIFileService{
     }
 
     @Override
-    protected ObjectInfo uploadFile(MultipartFile file) {
+    protected FileDetail uploadFile(MultipartFile file) {
         return fdfsTemplate.upload(file);
     }
 
