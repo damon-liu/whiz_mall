@@ -1,0 +1,6 @@
+server:
+  port: 2002
+
+spring:
+  application:
+    name: whiz-storage

@@ -37,6 +37,7 @@
         <fastjson.version>1.2.83</fastjson.version>
         <banner.version>1.0.2</banner.version>
         <spring-social-security.version>1.1.6.RELEASE</spring-social-security.version>
+        <seata-spring-boot-starter.version>1.4.2</seata-spring-boot-starter.version>
     </properties>
 
     <!--依赖包-->
@@ -130,6 +131,11 @@
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus</artifactId>
                 <version>${mybatis-plus-boot-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.seata</groupId>
+                <artifactId>seata-spring-boot-starter</artifactId>
+                <version>${seata-spring-boot-starter.version}</version>
             </dependency>
 
             <!-- hutool java工具类库  -->

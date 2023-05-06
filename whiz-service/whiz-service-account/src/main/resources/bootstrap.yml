@@ -1,0 +1,6 @@
+server:
+  port: 2004
+
+spring:
+  application:
+    name: whiz-account
