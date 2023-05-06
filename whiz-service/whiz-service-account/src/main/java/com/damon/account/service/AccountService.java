@@ -26,14 +26,14 @@ public class AccountService {
      */
     //@Transactional(rollbackFor = Exception.class)
     public void reduce(String userId, int money) {
-        if ("U002".equals(userId)) {
-            throw new RuntimeException("this is a mock Exception");
-        }
-
         QueryWrapper<Account> wrapper = new QueryWrapper<>();
         wrapper.setEntity(new Account().setUserId(userId));
         Account account = accountMapper.selectOne(wrapper);
         account.setMoney(account.getMoney() - money);
         accountMapper.updateById(account);
+
+        if ("U002".equals(userId)) {
+            throw new RuntimeException("this is a mock Exception");
+        }
     }
 }

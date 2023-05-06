@@ -6,7 +6,6 @@ import com.damon.order.feign.AccountFeignClient;
 import com.damon.order.mapper.OrderMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 
@@ -23,7 +22,7 @@ public class OrderService {
 
     public void create(String userId, String commodityCode, Integer count) {
         //订单金额
-        Integer orderMoney = count * 2;
+        Integer orderMoney = count * 1;
 
         Order order = new Order()
                 .setUserId(userId)
@@ -31,9 +30,6 @@ public class OrderService {
                 .setCount(count)
                 .setMoney(orderMoney);
         orderMapper.insert(order);
-
-        order.setMoney(0);
-        orderMapper.updateById(order);
 
         accountFeignClient.reduce(userId, orderMoney);
     }
