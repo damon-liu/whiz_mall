@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS `whiz-base` DEFAULT CHARACTER SET = utf8;
-Use `whiz-base`;
+CREATE DATABASE IF NOT EXISTS `whiz_base` DEFAULT CHARACTER SET = utf8;
+Use `whiz_base`;
 
 -- ----------------------------
 -- Table structure for sys_user

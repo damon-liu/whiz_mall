@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS `xxl-job` DEFAULT CHARACTER SET = utf8;
-Use `xxl-job`;
+CREATE DATABASE IF NOT EXISTS `xxl_job` DEFAULT CHARACTER SET = utf8;
+Use `xxl_job`;
 
 -- ----------------------------
 -- Table structure for XXL_JOB_QRTZ_JOB_DETAILS

@@ -1,11 +1,7 @@
-server:
-  port: 2020
 spring:
-  application:
-    name: whiz-file
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://${whiz.datasource.ip}:3306/whiz-file?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    url: jdbc:mysql://${whiz.datasource.ip}:3306/whiz_file?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
     username: ${whiz.datasource.username}
     password: ${whiz.datasource.password}
 
@@ -13,15 +9,15 @@ whiz:
   file:
     type: s3
     s3:
-#      type: aliYun
-#      accessKeyId:
-#      accessKeySecret:
-#      endpoint:
-#      bucketName:
-#      policyExpire: 3000
-#      callback:
-#      maxSize: 500
-#      dirPrefix: mall/dev/
+      type: aliYun
+      accessKeyId: xxx
+      accessKeySecret: xxx
+      endpoint: xxx
+      bucketName: xxx
+      policyExpire: 3000
+      callback: xxx
+      maxSize: 500
+      dirPrefix: mall/dev/
 
 
 

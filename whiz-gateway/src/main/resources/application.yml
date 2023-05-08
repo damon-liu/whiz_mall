@@ -7,23 +7,10 @@ spring:
           enabled: true
     gateway:
       routes:
-#        - id: oauth
-#          uri: lb://whiz-oauth
-#          predicates:
-#            - Path=/api-oauth/**
-#          filters:
-#            - StripPrefix= 1
         - id: goods
           uri: lb://whiz-goods
           predicates:
             - Path=/api-goods/**
-          filters:
-            - StripPrefix= 1
-
-        - id: whiz-system
-          uri: lb://system
-          predicates:
-            - Path=/system/**
           filters:
             - StripPrefix= 1
 

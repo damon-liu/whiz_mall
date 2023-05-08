@@ -34,4 +34,15 @@ public interface CommonConstant {
      * 权限
      */
     Integer PERMISSION = 2;
+
+
+    /**
+     * 负载均衡策略-ip 信息头
+     */
+    String CUSTOM_IP = "custom_ip";
+
+    /**
+     * 注册中心元数据 版本号
+     */
+    String METADATA_VERSION = "version";
 }

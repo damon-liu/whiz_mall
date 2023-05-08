@@ -1,0 +1,5 @@
+server:
+  port: 1001
+spring:
+  application:
+    name: whiz-oauth

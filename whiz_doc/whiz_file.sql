@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS `whiz-file` DEFAULT CHARACTER SET = utf8;
-Use `whiz-file`;
+CREATE DATABASE IF NOT EXISTS `whiz_file` DEFAULT CHARACTER SET = utf8;
+Use `whiz_file`;
 
 -- ----------------------------
 -- Table structure for file_info

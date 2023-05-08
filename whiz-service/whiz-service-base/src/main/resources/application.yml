@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://${whiz.datasource.ip}:3306/whiz-base?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    url: jdbc:mysql://${whiz.datasource.ip}:3306/whiz_base?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
     username: ${whiz.datasource.username}
     password: ${whiz.datasource.password}
 
