@@ -3,27 +3,33 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>whiz-service</artifactId>
+        <artifactId>whiz-mall</artifactId>
         <groupId>com.damon</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>whiz-service-storage</artifactId>
+    <artifactId>whiz-oauth</artifactId>
 
     <dependencies>
-        <dependency>
-            <groupId>com.damon</groupId>
-            <artifactId>whiz-config</artifactId>
-        </dependency>
         <dependency>
             <groupId>com.damon</groupId>
             <artifactId>whiz-db-spring-boot-starter</artifactId>
         </dependency>
         <dependency>
             <groupId>com.damon</groupId>
-            <artifactId>whiz-loadbalancer-spring-boot-starter</artifactId>
+            <artifactId>whiz-common-core</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.damon</groupId>
+            <artifactId>whiz-config</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.damon</groupId>
+            <artifactId>whiz-redis-spring-boot-starter</artifactId>
+        </dependency>
+
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -32,20 +38,15 @@
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
-        <!-- seata -->
+
         <dependency>
-            <groupId>io.seata</groupId>
-            <artifactId>seata-spring-boot-starter</artifactId>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-seata</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>io.seata</groupId>
-                    <artifactId>seata-spring-boot-starter</artifactId>
-                </exclusion>
-            </exclusions>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 

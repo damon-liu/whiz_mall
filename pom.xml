@@ -207,8 +207,8 @@
 
     <modules>
         <module>whiz-gateway</module>
-        <module>whiz-service</module>
-        <module>whiz-oauth-center</module>
+        <module>whiz-business</module>
+        <module>whiz-oauth</module>
         <module>whiz-commons</module>
         <module>whiz-web</module>
         <module>whiz-config</module>
