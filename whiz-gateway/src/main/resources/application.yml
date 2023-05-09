@@ -19,3 +19,8 @@ whiz:
     #网关动态路由
     dynamicRoute:
       enabled: true
+#  loadbalance:
+#    version: test
+#    isolation:
+#      enabled: true
+#      chooser: com.damon.common.lb.chooser.impl.RoundRuleChooser

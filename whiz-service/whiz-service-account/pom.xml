@@ -28,6 +28,10 @@
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.damon</groupId>
+            <artifactId>whiz-loadbalancer-spring-boot-starter</artifactId>
+        </dependency>
 
         <!-- seata -->
         <dependency>

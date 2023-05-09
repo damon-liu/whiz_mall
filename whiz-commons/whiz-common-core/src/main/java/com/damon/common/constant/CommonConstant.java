@@ -39,7 +39,7 @@ public interface CommonConstant {
     /**
      * 负载均衡策略-ip 信息头
      */
-    String CUSTOM_IP = "custom_ip";
+    String LOCK_REMOTE_IP = "lock-remote-ip"; 
 
     /**
      * 注册中心元数据 版本号
