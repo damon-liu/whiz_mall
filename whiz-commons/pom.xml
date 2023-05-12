@@ -18,6 +18,7 @@
         <module>whiz-common-core</module>
         <module>whiz-redis-spring-boot-starter</module>
         <module>whiz-loadbalancer-spring-boot-starter</module>
+        <module>whiz-auth-client-spring-boot-starter</module>
     </modules>
 
 

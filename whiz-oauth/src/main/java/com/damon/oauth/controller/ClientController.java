@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.Valid;
-
 /**
  * Description:
  *
@@ -31,17 +29,18 @@ public class ClientController {
     @Autowired
     private ClientService clientService;
 
+
     @GetMapping("/page")
     @ApiOperation(value = "分页列表")
     @ReSubmitAnno
-    public PageInfo<Client> pageListClient(@Valid @ModelAttribute ClientPage clientPage) {
+    public PageInfo<Client> pageListClient(@ModelAttribute ClientPage clientPage) {
         return clientService.pageListClient(clientPage);
     }
 
     @GetMapping("/page")
     @ApiOperation(value = "分页列表")
     @ApiVersion(value = 2)
-    public PageInfo<Client> pageListClientV2(@Valid @ModelAttribute ClientPage clientPage) {
+    public PageInfo<Client> pageListClientV2(@ModelAttribute ClientPage clientPage) {
         System.out.println("访问接口版本2");
         return clientService.pageListClient(clientPage);
     }

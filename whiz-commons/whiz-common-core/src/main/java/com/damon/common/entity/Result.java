@@ -40,6 +40,11 @@ public class Result<T> implements Serializable {
         return of(null, ResponseCodeEnum.FAIL.getCode(), msg);
     }
 
+    public static <T> Result<T> failed() {
+        return of(null, ResponseCodeEnum.FAIL.getCode(), ResponseCodeEnum.FAIL.getDesc());
+    }
+
+
     public static <T> Result<T> failed(Integer code, String msg) {
         return of(null, code, msg);
     }

@@ -26,6 +26,7 @@
         <pagehelper.version>1.4.4</pagehelper.version>
         <commons-beanutils.version>1.9.4</commons-beanutils.version>
         <hutool.version>5.7.20</hutool.version>
+        <servlet-api.version>4.0.1</servlet-api.version>
         <commons-collections4.version>4.4</commons-collections4.version>
         <mybatis-plus-boot-starter.version>3.5.1</mybatis-plus-boot-starter.version>
         <swagger2.version>2.8.0</swagger2.version>
@@ -34,10 +35,15 @@
         <persistence.version>1.0.2</persistence.version>
         <jackson-databind.version>2.10.5</jackson-databind.version>
         <jjwt.version>0.9.0</jjwt.version>
+        <nimbus-jose-jwt.version>9.23</nimbus-jose-jwt.version>
         <fastjson.version>1.2.83</fastjson.version>
         <banner.version>1.0.2</banner.version>
         <spring-social-security.version>1.1.6.RELEASE</spring-social-security.version>
         <seata-spring-boot-starter.version>1.4.2</seata-spring-boot-starter.version>
+        <spring-cloud-starter-oauth2.version>2.2.5.RELEASE</spring-cloud-starter-oauth2.version>
+        <security-oauth2.version>2.3.8.RELEASE</security-oauth2.version>
+        <security-jwt.version>1.1.0.RELEASE</security-jwt.version>
+        <transmittable.version>2.12.1</transmittable.version>
     </properties>
 
     <!--依赖包-->
@@ -97,6 +103,11 @@
             </dependency>
             <dependency>
                 <groupId>com.damon</groupId>
+                <artifactId>whiz-auth-client-spring-boot-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.damon</groupId>
                 <artifactId>whiz-config</artifactId>
                 <version>${project.version}</version>
             </dependency>
@@ -144,7 +155,11 @@
                 <artifactId>hutool-all</artifactId>
                 <version>${hutool.version}</version>
             </dependency>
-
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>${servlet-api.version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.springframework.social</groupId>
                 <artifactId>spring-social-security</artifactId>
@@ -167,9 +182,31 @@
                 <scope>import</scope>
             </dependency>
             <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-oauth2</artifactId>
+                <version>${spring-cloud-starter-oauth2.version}</version>
+            </dependency>
+            <!-- 加入spring security spring security oauth2的处理 -->
+            <dependency>
+                <groupId>org.springframework.security.oauth</groupId>
+                <artifactId>spring-security-oauth2</artifactId>
+                <version>${security-oauth2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-jwt</artifactId>
+                <version>${security-jwt.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>io.jsonwebtoken</groupId>
                 <artifactId>jjwt</artifactId>
                 <version>${jjwt.version}</version>
+            </dependency>
+            <!--JWT(Json Web Token)登录支持-->
+            <dependency>
+                <groupId>com.nimbusds</groupId>
+                <artifactId>nimbus-jose-jwt</artifactId>
+                <version>${nimbus-jose-jwt.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.springfox</groupId>
@@ -195,6 +232,11 @@
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
                 <version>${fastjson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>transmittable-thread-local</artifactId>
+                <version>${transmittable.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.nepxion</groupId>

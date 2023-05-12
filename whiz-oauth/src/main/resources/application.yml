@@ -4,3 +4,9 @@ spring:
     url: jdbc:mysql://${whiz.datasource.ip}:3306/whiz_oauth?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
     username: ${whiz.datasource.username}
     password: ${whiz.datasource.password}
+
+whiz:
+  oauth2:
+    token:
+      store:
+        type: authJwt

@@ -3,3 +3,9 @@ server:
 spring:
   application:
     name: whiz-oauth
+
+encrypt:
+  key-store:
+    location: classpath:whiz.jks
+    secret: whiz123
+    alias: whiz

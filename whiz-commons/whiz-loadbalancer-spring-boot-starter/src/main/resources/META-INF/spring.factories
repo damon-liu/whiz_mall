@@ -1,2 +1,3 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.damon.common.lb.config.IpIsolationAutoConfig
+com.damon.common.lb.config.IpIsolationAutoConfig,\
+com.damon.common.lb.RestTemplateAutoConfigure
