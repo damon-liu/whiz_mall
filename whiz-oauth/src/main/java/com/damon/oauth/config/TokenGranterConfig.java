@@ -1,5 +1,6 @@
 package com.damon.oauth.config;
 
+import com.damon.oauth.granter.MobilePwdGranter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -94,8 +95,8 @@ public class TokenGranterConfig {
             // tokenGranters.add(new PwdImgCodeGranter(authenticationManager, tokenServices, clientDetailsService, requestFactory, validateCodeService));
             // // 添加openId模式
             // tokenGranters.add(new OpenIdGranter(authenticationManager, tokenServices, clientDetailsService, requestFactory));
-            // // 添加手机号加密码授权模式
-            // tokenGranters.add(new MobilePwdGranter(authenticationManager, tokenServices, clientDetailsService, requestFactory));
+            // 添加手机号加密码授权模式
+            tokenGranters.add(new MobilePwdGranter(authenticationManager, tokenServices, clientDetailsService, requestFactory));
         }
         return tokenGranters;
     }

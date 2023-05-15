@@ -45,7 +45,7 @@ public interface UserService {
      *
      * @param mobile 手机号
      */
-    @GetMapping(value = "/feign/sysUse/mobile", params = "mobile")
+    @GetMapping(value = "/feign/sysUser/mobile", params = "mobile")
     LoginAppUser findByMobile(@RequestParam("mobile") String mobile);
 
     /**

@@ -3,7 +3,7 @@ package com.damon.oauth.service;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.StrUtil;
 import com.damon.oauth.service.impl.RedisClientDetailsService;
-import com.damon.utils.UsernameHolder;
+import com.damon.oauth.utils.UsernameHolder;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.core.task.TaskExecutor;

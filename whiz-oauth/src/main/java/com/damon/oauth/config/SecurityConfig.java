@@ -3,6 +3,7 @@ package com.damon.oauth.config;
 import com.damon.common.config.DefaultPasswordConfig;
 import com.damon.common.constant.SecurityConstants;
 import com.damon.oauth.handler.OauthLogoutSuccessHandler;
+import com.damon.oauth.mobile.MobileAuthenticationSecurityConfig;
 import com.damon.oauth.organ.TenantUsernamePasswordAuthenticationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -42,9 +43,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     // @Autowired
     // private OpenIdAuthenticationSecurityConfig openIdAuthenticationSecurityConfig;
-    //
-    // @Autowired
-    // private MobileAuthenticationSecurityConfig mobileAuthenticationSecurityConfig;
+
+    @Autowired
+    private MobileAuthenticationSecurityConfig mobileAuthenticationSecurityConfig;
 
     @Autowired(required = false)
     private AuthenticationEntryPoint authenticationEntryPoint;
@@ -86,8 +87,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .clearAuthentication(true)
                 // .and()
                 // .apply(openIdAuthenticationSecurityConfig)
-                // .and()
-                // .apply(mobileAuthenticationSecurityConfig)
+                .and()
+                .apply(mobileAuthenticationSecurityConfig)
                 .and()
                 // .addFilterBefore(new LoginProcessSetTenantFilter(), UsernamePasswordAuthenticationFilter.class)
                 .csrf().disable()

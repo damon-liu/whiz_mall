@@ -40,7 +40,8 @@ public class UserServiceImpl implements CustomUserDetailsService {
 
     @Override
     public UserDetails loadUserByMobile(String mobile) {
-        return null;
+        LoginAppUser loginAppUser = userService.findByMobile(mobile);
+        return checkUser(loginAppUser);
     }
 
     @Override

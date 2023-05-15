@@ -3,7 +3,7 @@ package com.damon.oauth.handler;
 import cn.hutool.core.util.StrUtil;
 import com.damon.common.oauth.properties.SecurityProperties;
 import com.damon.common.oauth.utils.AuthUtil;
-import com.damon.utils.UsernameHolder;
+import com.damon.oauth.utils.UsernameHolder;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;

@@ -1,4 +1,4 @@
-package com.damon.utils;
+package com.damon.oauth.utils;
 
 /**
  * Description:
