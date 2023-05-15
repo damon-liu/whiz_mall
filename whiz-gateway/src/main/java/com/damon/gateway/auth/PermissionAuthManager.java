@@ -1,4 +1,4 @@
-package com.damon.gateway.auth.core;
+package com.damon.gateway.auth;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.StrUtil;
@@ -90,7 +90,7 @@ public class PermissionAuthManager implements ReactiveAuthorizationManager<Autho
                 return true;
             }
 
-            OAuth2Authentication auth2Authentication = (OAuth2Authentication)authentication;
+            OAuth2Authentication auth2Authentication = (OAuth2Authentication) authentication;
             //判断应用黑白名单
             if (!isNeedAuth(auth2Authentication.getOAuth2Request().getClientId())) {
                 return true;
@@ -130,6 +130,7 @@ public class PermissionAuthManager implements ReactiveAuthorizationManager<Autho
 
     /**
      * 判断应用是否满足白名单和黑名单的过滤逻辑
+     *
      * @param clientId 应用id
      * @return true(需要认证)，false(不需要认证)
      */
@@ -141,7 +142,7 @@ public class PermissionAuthManager implements ReactiveAuthorizationManager<Autho
         List<String> exclusiveClientIds = securityProperties.getAuth().getUrlPermission().getExclusiveClientIds();
         if (includeClientIds.size() > 0) {
             result = includeClientIds.contains(clientId);
-        } else if(exclusiveClientIds.size() > 0) {
+        } else if (exclusiveClientIds.size() > 0) {
             result = !exclusiveClientIds.contains(clientId);
         }
         return result;

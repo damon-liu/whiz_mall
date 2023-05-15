@@ -2,7 +2,7 @@ package com.damon.oauth.service.impl;
 
 import com.damon.common.entity.LoginAppUser;
 import com.damon.common.feign.UserService;
-import com.damon.oauth.service.WhizUserDetailService;
+import com.damon.oauth.service.CustomUserDetailsService;
 import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.InternalAuthenticationServiceException;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -19,7 +19,7 @@ import javax.annotation.Resource;
  * Date 2023-05-10 8:55
  */
 @Service
-public class UserServiceImpl implements WhizUserDetailService {
+public class UserServiceImpl implements CustomUserDetailsService {
 
     @Resource
     private UserService userService;

@@ -11,7 +11,7 @@ import org.springframework.social.security.SocialUserDetails;
  * @author damon.liu
  * Date 2023-05-10 9:12
  */
-public interface WhizUserDetailService extends UserDetailsService {
+public interface CustomUserDetailsService extends UserDetailsService {
 
     /**
      * 判断实现类是否属于该类型

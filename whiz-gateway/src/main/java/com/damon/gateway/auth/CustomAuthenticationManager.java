@@ -1,4 +1,4 @@
-package com.damon.gateway.auth.core;
+package com.damon.gateway.auth;
 
 import org.springframework.security.authentication.ReactiveAuthenticationManager;
 import org.springframework.security.core.Authentication;

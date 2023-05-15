@@ -5,17 +5,18 @@ import com.damon.common.constant.SecurityConstants;
 import com.damon.common.entity.SysUser;
 import com.damon.common.oauth.properties.TokenStoreProperties;
 import com.damon.common.oauth.utils.AuthUtil;
-import com.damon.oauth.service.ClientService;
-import com.damon.oauth.service.WhizUserDetailService;
 import com.damon.oauth.service.impl.RedisClientDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.bootstrap.encrypt.KeyProperties;
+import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.oauth2.common.DefaultOAuth2AccessToken;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.TokenGranter;
@@ -29,11 +30,14 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * Description:
+ * Description:OAuth2 授权服务器配置
  *
  * @author damon.liu
  * Date 2023-05-10 13:59
  */
+@Configuration
+@EnableAuthorizationServer
+@AutoConfigureAfter(AuthorizationServerEndpointsConfigurer.class)
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
 
     /**
@@ -44,7 +48,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Autowired
     private TokenStore tokenStore;
     @Autowired
-    private WhizUserDetailService whizUserDetailService;
+    private UserDetailsService userDetailsService;
     @Autowired
     private WebResponseExceptionTranslator webResponseExceptionTranslator;
 
@@ -65,7 +69,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) {
         endpoints.tokenStore(tokenStore)
                 .authenticationManager(authenticationManager)
-                .userDetailsService(whizUserDetailService)
+                .userDetailsService(userDetailsService)
                 .authorizationCodeServices(authorizationCodeServices)
                 .exceptionTranslator(webResponseExceptionTranslator)
                 .tokenGranter(tokenGranter);
@@ -99,15 +103,12 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     /**
      * 添加自定义信息的话，比如说登录用户的ID
      *
-     * @param keyProperties
-     * @param clientService
      * @param tokenStoreProperties
      * @return
      */
     @Bean
     @Order(1)
-    public TokenEnhancer tokenEnhancer(@Autowired(required = false) KeyProperties keyProperties
-            , ClientService clientService, TokenStoreProperties tokenStoreProperties) {
+    public TokenEnhancer tokenEnhancer(TokenStoreProperties tokenStoreProperties) {
         return (accessToken, authentication) -> {
             Set<String> responseTypes = authentication.getOAuth2Request().getResponseTypes();
             Map<String, Object> additionalInfo = new HashMap<>(3);

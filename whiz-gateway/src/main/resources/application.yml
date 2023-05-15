@@ -7,12 +7,55 @@ spring:
           enabled: true
     gateway:
       routes:
-        - id: goods
-          uri: lb://whiz-goods
+        - id: base
+          uri: lb://whiz-base
           predicates:
-            - Path=/api-goods/**
+            - Path=/api-base/**
           filters:
-            - StripPrefix= 1
+            - StripPrefix=1
+
+        - id: auth
+          uri: lb://whiz-oauth
+          predicates:
+            - Path=/api-oauth/**
+          filters:
+            - StripPrefix=1
+            - PreserveHostHeader
+
+        - id: auth-login-authorize
+          uri: lb://whiz-oauth
+          predicates:
+            - Path=/oauth/authorize
+          filters:
+            - PreserveHostHeader
+
+        - id: auth-login-page
+          uri: lb://whiz-oauth
+          predicates:
+            - Path=/login.html
+          filters:
+            - PreserveHostHeader
+
+        - id: auth-login-process
+          uri: lb://whiz-oauth
+          predicates:
+            - Path=/user/login
+          filters:
+            - PreserveHostHeader
+
+        - id: auth-login-token
+          uri: lb://whiz-oauth
+          predicates:
+            - Path=/oauth/token
+          filters:
+            - PreserveHostHeader
+
+        - id: auth-check-process
+          uri: lb://whiz-oauth
+          predicates:
+            - Path=/oauth/check_token
+          filters:
+            - PreserveHostHeader
 
 whiz:
   oauth2:
@@ -37,8 +80,8 @@ whiz:
         enable: false
         #配置只进行登录认证，不进行url权限认证的api
         ignoreUrls: >
-          /api-user/menus/current,
-          /api-user/users/current,
+          /api-base/menus/current,
+          /api-base/users/current,
           /api-log/requestStat
         #白名单
         includeClientIds:

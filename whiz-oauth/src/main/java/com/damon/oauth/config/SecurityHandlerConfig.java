@@ -81,9 +81,9 @@ public class SecurityHandlerConfig {
                 }
                 ResponseEntity<OAuth2Exception> response = super.translate(oAuth2Exception);
                 ResponseEntity.status(oAuth2Exception.getHttpErrorCode());
-                response.getBody().addAdditionalInformation("resp_code", oAuth2Exception.getHttpErrorCode() + "");
-                response.getBody().addAdditionalInformation("resp_msg", oAuth2Exception.getMessage());
-
+                response.getBody().addAdditionalInformation("code", oAuth2Exception.getHttpErrorCode() + "");
+                response.getBody().addAdditionalInformation("msg", oAuth2Exception.getMessage());
+                response.getBody().addAdditionalInformation("data", null);
                 return response;
             }
         };

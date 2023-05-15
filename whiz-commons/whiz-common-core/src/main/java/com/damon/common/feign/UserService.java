@@ -22,22 +22,22 @@ import java.util.List;
 public interface UserService {
 
     /**
-     * feign rpc访问远程/users/{username}接口
+     * feign rpc访问远程/feign/sysUser/{username}接口
      * 查询用户实体对象SysUser
      *
      * @param username
      * @return
      */
-    @GetMapping(value = "/users/name/{username}")
+    @GetMapping(value = "/feign/sysUser/userByName/{username}")
     SysUser selectByUsername(@PathVariable("username") String username);
 
     /**
-     * feign rpc访问远程/users-anon/login接口
+     * feign rpc访问远程/feign/sysUser-anon/login接口
      *
      * @param username
      * @return
      */
-    @GetMapping(value = "/users-anon/login", params = "username")
+    @GetMapping(value = "/feign/sysUser/userDtoByName", params = "username")
     LoginAppUser findByUsername(@RequestParam("username") String username);
 
     /**
@@ -45,7 +45,7 @@ public interface UserService {
      *
      * @param mobile 手机号
      */
-    @GetMapping(value = "/users-anon/mobile", params = "mobile")
+    @GetMapping(value = "/feign/sysUse/mobile", params = "mobile")
     LoginAppUser findByMobile(@RequestParam("mobile") String mobile);
 
     /**
@@ -53,7 +53,7 @@ public interface UserService {
      *
      * @param openId openId
      */
-    @GetMapping(value = "/users-anon/openId", params = "openId")
+    @GetMapping(value = "/feign/sysUser/openId", params = "openId")
     LoginAppUser findByOpenId(@RequestParam("openId") String openId);
 
 
@@ -62,7 +62,7 @@ public interface UserService {
      * @param username
      * @return
      */
-    @GetMapping(value = "/users/roleUser/{username}")
+    @GetMapping(value = "/feign/sysUser/roleUser/{username}")
     SysUser selectRoleUser(@PathVariable("username") String username);
 
     /**
@@ -71,6 +71,6 @@ public interface UserService {
      * @param
      * @return
      */
-    @GetMapping("/users/{id}/roles")
+    @GetMapping("/feign/sysUser/{id}/roles")
     List<SysRole> findRolesByUserId(@PathVariable("id") Long id);
 }

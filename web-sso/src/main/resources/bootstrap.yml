@@ -1,0 +1,14 @@
+server:
+  port: 3000
+
+spring:
+  application:
+    name: web-sso
+
+whiz:
+  sso:
+    client-id: webApp
+    client-secret: webApp
+    redirect-uri: http://127.0.0.1:3000/callback.html
+    access-token-uri: http://127.0.0.1:1000/api-oauth/oauth/token
+    user-info-uri: http://127.0.0.1:1000/api-base/users/current

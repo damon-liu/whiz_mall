@@ -29,7 +29,7 @@ import java.util.Set;
  * Date 2023-05-02 8:50
  */
 @RestController
-@RequestMapping("/sysUser")
+// @RequestMapping("/sysUser")
 @Api(tags = "")
 public class SysUserController {
 
