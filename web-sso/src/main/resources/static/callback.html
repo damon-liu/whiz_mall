@@ -15,20 +15,18 @@
         let localState = sessionStorage.getItem("state");
         //判断state防止CSRF攻击
         if (localState !== state) {
-            alert('state参数无效！');
-            console.log('state参数无效!' + state + "   " + localState);
+            alert('state参数无效');
             let state = getState();
             sessionStorage.setItem("state", state);
             window.location = getAuthorizeUri(state);
         }
         //url获取code
         let code = getQueryVariable('code');
-        console.log('code' + code);
 
         //获取token和用户信息
         $.ajax({url:'http://127.0.0.1:3000/token/'+code, success:function(result) {
             alert('access_token: ' + result);
-            sessionStorage.setItem("visitUri", "www.baidu.com");
+            sessionStorage.setItem("visitUri", "index.html");
             sessionStorage.setItem('access_token', result);
             window.location = sessionStorage.getItem('visitUri');
         }});
