@@ -9,7 +9,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication
 @EnableDiscoveryClient
 @MapperScan(basePackages = {"com.damon.base.mapper"})
-@EnableFeignClients
+@EnableFeignClients({"com.damon.common.feign","com.damon.base.mangage"})
 public class BaseApplication {
     public static void main(String[] args) {
         SpringApplication.run( BaseApplication.class);

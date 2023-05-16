@@ -1,10 +1,7 @@
 package com.damon.oauth.config;
 
-import cn.hutool.core.util.StrUtil;
-import com.damon.common.constant.SecurityConstants;
 import com.damon.common.entity.SysUser;
 import com.damon.common.oauth.properties.TokenStoreProperties;
-import com.damon.common.oauth.utils.AuthUtil;
 import com.damon.oauth.service.impl.RedisClientDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
@@ -112,10 +109,10 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
         return (accessToken, authentication) -> {
             Set<String> responseTypes = authentication.getOAuth2Request().getResponseTypes();
             Map<String, Object> additionalInfo = new HashMap<>(3);
-            String accountType = AuthUtil.getAccountType(authentication.getUserAuthentication());
-            if (StrUtil.isNotEmpty(accountType)) {
-                additionalInfo.put(SecurityConstants.ACCOUNT_TYPE_PARAM_NAME, accountType);
-            }
+            // String accountType = AuthUtil.getAccountType(authentication.getUserAuthentication());
+            // if (StrUtil.isNotEmpty(accountType)) {
+            //     additionalInfo.put(SecurityConstants.ACCOUNT_TYPE_PARAM_NAME, accountType);
+            // }
 
             if ("authJwt".equals(tokenStoreProperties.getType())) {
                 Object principal = authentication.getPrincipal();

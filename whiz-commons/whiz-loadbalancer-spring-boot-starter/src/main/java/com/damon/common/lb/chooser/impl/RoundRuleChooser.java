@@ -27,7 +27,7 @@ public class RoundRuleChooser implements IRuleChooser {
     public ServiceInstance choose(List<ServiceInstance> instances) {
         if(CollectionUtils.isNotEmpty(instances)){
             ServiceInstance serviceInstance = instances.get(Math.abs(position.incrementAndGet() % instances.size()));
-            log.info("轮训选择器指定ip为：{}, 端口：{}", serviceInstance.getHost(), serviceInstance.getPort());
+            // log.info("轮训选择器指定ip为：{}, 端口：{}", serviceInstance.getHost(), serviceInstance.getPort());
             return serviceInstance;
         }
         return null;

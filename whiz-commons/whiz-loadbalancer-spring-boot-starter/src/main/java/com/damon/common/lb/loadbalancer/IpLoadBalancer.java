@@ -43,7 +43,7 @@ public class IpLoadBalancer implements ReactorServiceInstanceLoadBalancer {
         // 从request中获取版本，兼容webflux方式
         RequestData requestData = ((RequestDataContext) (request.getContext())).getClientRequest();
         String ip = getVersionFromRequestData(requestData);
-        log.info("客户端指定的ip为：{}", ip);
+        // log.info("客户端指定的ip为：{}", ip);
         return serviceInstanceListSuppliers.getIfAvailable().get(request).next().map(instanceList -> getInstanceResponse(instanceList, ip));
     }
 

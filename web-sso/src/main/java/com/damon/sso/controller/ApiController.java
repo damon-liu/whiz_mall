@@ -97,7 +97,7 @@ public class ApiController {
     public Map getUserInfo(String accessToken) {
         RestTemplate restTemplate = new RestTemplate();
         Map result = restTemplate.getForObject(userInfoUri+"?access_token="+accessToken, Map.class);
-        return (Map)result.get("datas");
+        return (Map)result.get("data");
     }
 
     private List<String> getRoles(Map userMap) {

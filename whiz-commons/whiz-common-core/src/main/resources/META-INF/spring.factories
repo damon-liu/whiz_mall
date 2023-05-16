@@ -2,4 +2,5 @@ org.springframework.context.ApplicationContextInitializer=\
 
 
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.damon.common.feign.fallback.UserServiceFallbackFactory,\
 com.damon.common.utils.SpringUtil
