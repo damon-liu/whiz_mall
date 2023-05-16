@@ -139,8 +139,8 @@ public class SysUserController {
      */
     @ApiOperation(value = "用户查询列表")
     @GetMapping("/users")
-    public PageInfo<SysUser> findUsers(@Valid @ModelAttribute SysUserPage page) {
-        return appUserService.findUsers(page);
+    public Result<PageInfo<SysUser>> findUsers(@Valid @ModelAttribute SysUserPage page) {
+        return Result.succeed(appUserService.findUsers(page));
     }
 
     /**

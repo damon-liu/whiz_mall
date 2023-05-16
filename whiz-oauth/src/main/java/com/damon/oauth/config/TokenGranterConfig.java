@@ -1,6 +1,6 @@
 package com.damon.oauth.config;
 
-import com.damon.oauth.granter.MobilePwdGranter;
+import com.damon.oauth.granter.mobile.MobilePwdGranter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

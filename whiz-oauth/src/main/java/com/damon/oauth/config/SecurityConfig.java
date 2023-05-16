@@ -3,7 +3,7 @@ package com.damon.oauth.config;
 import com.damon.common.config.DefaultPasswordConfig;
 import com.damon.common.constant.SecurityConstants;
 import com.damon.oauth.handler.OauthLogoutSuccessHandler;
-import com.damon.oauth.mobile.MobileAuthenticationSecurityConfig;
+import com.damon.oauth.granter.mobile.MobileAuthenticationSecurityConfig;
 import com.damon.oauth.organ.TenantUsernamePasswordAuthenticationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

@@ -1,4 +1,4 @@
-package com.damon.oauth.mobile;
+package com.damon.oauth.granter.mobile;
 
 import com.damon.oauth.service.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;

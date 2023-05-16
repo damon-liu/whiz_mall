@@ -45,9 +45,19 @@ public interface SecurityConstants {
     String ACCOUNT_TYPE_PARAM_NAME = "account_type";
 
     /**
+     * 默认账号类型
+     */
+    String DEF_ACCOUNT_TYPE = "admin";
+
+    /**
      * 缓存client的redis key，这里是hash结构存储
      */
     String CACHE_CLIENT_KEY = "oauth_client_details";
+
+    /**
+     * 授权码模式
+     */
+    String AUTHORIZATION_CODE = "authorization_code";
 
     /**
      * 登出URL

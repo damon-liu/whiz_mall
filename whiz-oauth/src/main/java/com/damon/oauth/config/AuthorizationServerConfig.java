@@ -122,7 +122,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 if (principal instanceof SysUser) {
                     SysUser user = (SysUser)principal;
                     if ("authJwt".equals(tokenStoreProperties.getType())) {
-                        additionalInfo.put("id", user.getId());
+                        additionalInfo.put("userId", user.getId());
                     }
                 }
             }

@@ -1,4 +1,4 @@
-package com.damon.oauth.granter;
+package com.damon.oauth.granter.mobile;
 
 import com.damon.common.oauth.token.MobileAuthenticationToken;
 import org.springframework.security.authentication.AbstractAuthenticationToken;

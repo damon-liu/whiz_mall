@@ -76,8 +76,8 @@ public class SecurityHandlerConfig {
                     oAuth2Exception = new InvalidGrantException(e.getMessage(), e);
                 } else if (e instanceof OAuth2Exception) {
                     oAuth2Exception = (OAuth2Exception)e;
-                } else {
-                    oAuth2Exception = new UnsupportedResponseTypeException("服务内部错误", e);
+                }  else {
+                    oAuth2Exception = new UnsupportedResponseTypeException("系统异常：" + e.getMessage(), e);
                 }
                 ResponseEntity<OAuth2Exception> response = super.translate(oAuth2Exception);
                 ResponseEntity.status(oAuth2Exception.getHttpErrorCode());

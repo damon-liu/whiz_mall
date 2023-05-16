@@ -67,7 +67,7 @@ public class CustomUserAuthenticationConverter implements UserAuthenticationConv
                 authorities = user.getAuthorities();
                 principal = user;
             } else {
-                Integer id = (Integer)map.get("id");
+                Integer id = (Integer)map.get("userId");
                 LoginAppUser user = new LoginAppUser();
                 user.setUsername((String)principal);
                 user.setId(Long.valueOf(id));
