@@ -1,0 +1,6 @@
+server:
+  port: 2005
+
+spring:
+  application:
+    name: whiz-iot-bridging
