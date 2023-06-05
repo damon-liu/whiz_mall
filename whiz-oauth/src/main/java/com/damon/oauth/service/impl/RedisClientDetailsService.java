@@ -56,9 +56,9 @@ public class RedisClientDetailsService extends JdbcClientDetailsService {
                 log.info("缓存clientId:{},{}", clientId, clientDetails);
             }
         } catch (NoSuchClientException e) {
-            log.error("clientId:{},{}", clientId, clientId);
+            log.error("无此clientId：{}", clientId);
         } catch (InvalidClientException e) {
-            log.error("cacheAndGetClient-invalidClient:{}", clientId, e);
+            log.error("非法clientId：{}", clientId);
         }
         return clientDetails;
     }

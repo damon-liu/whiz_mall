@@ -19,6 +19,7 @@
         <module>whiz-service-account</module>
         <module>whiz-service-storage</module>
         <module>whiz-service-business</module>
+        <module>whiz-service-iot-bridging</module>
     </modules>
 
 </project>

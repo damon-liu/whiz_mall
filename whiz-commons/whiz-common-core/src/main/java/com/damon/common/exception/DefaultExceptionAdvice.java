@@ -51,7 +51,7 @@ public class DefaultExceptionAdvice {
      * 请求方法异常
      * 返回状态码:405
      */
-    // @ResponseStatus(HttpStatus.METHOD_NOT_ALLOWED)
+    @ResponseStatus(HttpStatus.METHOD_NOT_ALLOWED)
     @ExceptionHandler({HttpRequestMethodNotSupportedException.class})
     public Result handleHttpRequestMethodNotSupportedException(HttpRequestMethodNotSupportedException e) {
         return defHandler("请求方法错误", e);
