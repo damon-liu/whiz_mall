@@ -25,6 +25,8 @@ spring:
     default-topic: test
     subscribeTopics:
       - /icer/#
+      - $SYS/brokers/+/clients/+/connected
+      - $SYS/brokers/+/clients/+/disconnected
     timeout: 300
     keepalive: 300
 

@@ -65,7 +65,7 @@ public class MqttReceive4Icr extends MqttClientReceiveAbstract {
                     .payload(mqttMessage.getPayload())
                     .build();
             Object parse = JSONObject.parse(mqttMessage.getPayload());
-            System.out.println("icer接收消息:  " + parse);
+            log.info("【icer】 topic：{} ，【接收消息】: {}", topic, parse);
             // this.rabbitMqUtils.asyncSend(message, this.env + RabbitMqConfig.QUEUE, this.env + RabbitMqConfig.Exchange);
         } catch (Exception e) {
             e.printStackTrace();
