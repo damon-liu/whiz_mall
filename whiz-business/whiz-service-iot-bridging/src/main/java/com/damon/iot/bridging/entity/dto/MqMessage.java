@@ -13,10 +13,12 @@ import java.io.Serializable;
 @Data
 @Builder
 public class MqMessage implements Serializable {
+
     private String topic;
-    /**
-     * 数据接收时间
-     */
+
     private Long serverRecvTime;
-    private  byte[] payload;
+
+    private byte[] payload;
+
+    private String remark;
 }
