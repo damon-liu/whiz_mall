@@ -269,6 +269,7 @@
         <module>whiz-web</module>
         <module>whiz-config</module>
         <module>web-sso</module>
+        <module>whiz-iot</module>
     </modules>
 
 </project>
