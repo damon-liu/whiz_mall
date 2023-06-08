@@ -23,16 +23,6 @@ public class RabbitMqConfig {
     @Value("${ice.active}")
     private String env;
 
-    public static final String QUEUE = ".iot.topic.l";
-
-    public static final String EXCHANGE = ".iot.topic.e";
-
-    public static final String EXCHANGE_IOT_PUSH = "%s.iot.topic.push.e.%s";
-
-    public static final String QUEUE_IOT_PUSH = "%s.iot.topic.push.q.%s";
-
-    public static final String BINDING_KEY = QUEUE;
-
     @Bean(name = "rabbitConnectionFactory")
     @Primary
     public ConnectionFactory rabbitConnectionFactory(

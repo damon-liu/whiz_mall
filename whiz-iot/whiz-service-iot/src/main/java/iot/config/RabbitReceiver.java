@@ -2,6 +2,7 @@ package iot.config;
 
 import com.alibaba.fastjson.JSONObject;
 import com.rabbitmq.client.Channel;
+import iot.common.constant.MqttConstants;
 import iot.common.entity.MqMessage;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.Message;
@@ -23,13 +24,11 @@ import java.util.Map;
 @Slf4j
 public class RabbitReceiver {
 
-    public static final String QUEUE = ".iot.topic.l";
-
     public static final String PRE_SYS = "$SYS/";
 
 
     @RabbitHandler
-    @RabbitListener(queues = "${ice.active}" + RabbitReceiver.QUEUE, containerFactory = "rabbitFactory")
+    @RabbitListener(queues = "${ice.active}" + MqttConstants.ICER_TOPIC_QUEUE, containerFactory = "rabbitFactory")
     public void onMessage(@Payload MqMessage obj, Message message, Channel channel, @Headers Map<String, Object> headers) {
         // 系统订阅
         log.info("【icer rabbitMq】 接收topic：{}  {}", obj.getTopic(), JSONObject.parse(obj.getPayload()));

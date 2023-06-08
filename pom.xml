@@ -113,6 +113,8 @@
                 <artifactId>whiz-config</artifactId>
                 <version>${project.version}</version>
             </dependency>
+
+
             <dependency>
                 <groupId>com.github.pagehelper</groupId>
                 <artifactId>pagehelper-spring-boot-starter</artifactId>

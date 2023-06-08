@@ -1,5 +1,6 @@
 package com.damon.iot.bridging.config.rabbitmq;
 
+import iot.common.constant.MqttConstants;
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.Queue;
@@ -33,15 +34,10 @@ public class RabbitMqConfig {
     @Value("${ice.active}")
     private String env;
 
-    public static final String QUEUE = ".iot.topic.l";
-
-    public static final String EXCHANGE = ".iot.topic.e";
-
     public static final String EXCHANGE_IOT_PUSH = "%s.iot.topic.push.e.%s";
 
     public static final String QUEUE_IOT_PUSH = "%s.iot.topic.push.q.%s";
 
-    public static final String BINDING_KEY = QUEUE;
 
     @Bean(name = "rabbitConnectionFactory")
     @Primary
@@ -102,12 +98,12 @@ public class RabbitMqConfig {
 
         //声明RabbitAdmin用户创建交换机，队列及绑定关系
         //创建交换机,并用rabbitAdmin进行声明
-        TopicExchange fanoutExchange = new TopicExchange(this.env + EXCHANGE);
+        TopicExchange fanoutExchange = new TopicExchange(this.env + MqttConstants.ICER_TOPIC_EXCHANGE);
         rabbitAdmin.declareExchange(fanoutExchange);
         //创建队列,设置消息的持久化存储为true
-        Queue queue = new Queue(this.env + QUEUE, true);
+        Queue queue = new Queue(this.env + MqttConstants.ICER_TOPIC_QUEUE, true);
         //创建此队列与交换机的绑定关系,路由键为文章作者的id
-        Binding bind = BindingBuilder.bind(queue).to(fanoutExchange).with(this.env + BINDING_KEY);
+        Binding bind = BindingBuilder.bind(queue).to(fanoutExchange).with(this.env + MqttConstants.ICER_TOPIC_BINDING_KEY);
         //声明队列的使用
         rabbitAdmin.declareQueue(queue);
         //增加队列与交换机之间此作者id的路由键绑定

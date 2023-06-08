@@ -3,9 +3,9 @@ package com.damon.iot.bridging.config.mqtt.receive;
 import com.alibaba.fastjson.JSONObject;
 import com.damon.iot.bridging.config.mqtt.properties.MqttProperties;
 import com.damon.iot.bridging.config.mqtt.properties.MqttProperties4Icer;
-import com.damon.iot.bridging.config.rabbitmq.RabbitMqConfig;
 import com.damon.iot.bridging.utils.RabbitSendMsgUtil;
 import com.damon.iot.bridging.utils.enums.IotServiceType;
+import iot.common.constant.MqttConstants;
 import iot.common.entity.MqMessage;
 import lombok.Getter;
 import lombok.SneakyThrows;
@@ -68,7 +68,7 @@ public class MqttReceive4Icr extends MqttClientReceiveAbstract {
                     .build();
             Object parse = JSONObject.parse(mqttMessage.getPayload());
             log.info("【icer mqtt】 接收消息 topic：{} , {}", topic, parse);
-            this.rabbitMqUtils.asyncSend(this.env + RabbitMqConfig.EXCHANGE, this.env + RabbitMqConfig.BINDING_KEY, message);
+            this.rabbitMqUtils.asyncSend(this.env + MqttConstants.ICER_TOPIC_EXCHANGE, this.env + MqttConstants.ICER_TOPIC_BINDING_KEY, message);
         } catch (Exception e) {
             e.printStackTrace();
         }
