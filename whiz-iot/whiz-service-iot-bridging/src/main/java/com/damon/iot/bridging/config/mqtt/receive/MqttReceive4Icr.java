@@ -35,6 +35,10 @@ public class MqttReceive4Icr extends MqttClientReceiveAbstract {
     @Autowired
     private RabbitSendMsgUtil rabbitMqUtils;
 
+    public static final String PRE_SYS = "$SYS/";
+
+    public static final String TEST_TOPIC = "/test";
+
 
     @Override
     public MqttProperties mqttProperties() {
@@ -66,8 +70,11 @@ public class MqttReceive4Icr extends MqttClientReceiveAbstract {
                     .serverRecvTime(System.currentTimeMillis())
                     .payload(mqttMessage.getPayload())
                     .build();
-            Object parse = JSONObject.parse(mqttMessage.getPayload());
-            log.info("【icer mqtt】 接收消息 topic：{} , {}", topic, parse);
+            log.info("【icer mqtt】 接收消息 topic：{}", topic);
+            if (topic.contains(PRE_SYS) || topic.contains(TEST_TOPIC)) {
+                Object parse = JSONObject.parse(mqttMessage.getPayload());
+                log.info("消息体：{}", parse);
+            }
             this.rabbitMqUtils.asyncSend(this.env + MqttConstants.ICER_TOPIC_EXCHANGE, this.env + MqttConstants.ICER_TOPIC_BINDING_KEY, message);
         } catch (Exception e) {
             e.printStackTrace();

@@ -15,7 +15,7 @@ spring:
     port: 5672
     username: guest
     password: guest
-    virtual-host: /
+    virtual-host: iot
     #确认消息已发送到交换机(Exchange)
     publisher-confirm-type: correlated
     #确认消息已发送到队列(Queue)
@@ -36,6 +36,32 @@ spring:
         size: 200
         checkout-timeout: 100
 
+  rbtRabbitmq:
+    enable: true
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: iot
+    #确认消息已发送到交换机(Exchange)
+    publisher-confirm-type: correlated
+    #确认消息已发送到队列(Queue)
+    publisher-returns: true
+    listener:
+      simple:
+        retry:
+          enabled: true
+          # 重试次数
+          max-attempts: 5
+          # 重试最大间隔时间
+          max-interval: 20000
+          # 重试初始间隔时间
+          initial-interval: 4000
+          # 间隔时间乘子，间隔时间*乘子=下一次的间隔时间，最大不能超过设置的最大间隔时间
+          multiplier: 2
+      channel:
+        size: 200
+        checkout-timeout: 100
 ice:
   active: cn.dev
 

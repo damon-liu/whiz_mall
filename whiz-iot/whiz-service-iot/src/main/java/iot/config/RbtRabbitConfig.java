@@ -1,15 +1,9 @@
-package com.damon.iot.bridging.config.rbtRabbitmq;
+package iot.config;
 
-import iot.common.constant.MqttConstants;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.amqp.core.Binding;
-import org.springframework.amqp.core.BindingBuilder;
-import org.springframework.amqp.core.FanoutExchange;
-import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.config.SimpleRabbitListenerContainerFactory;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
-import org.springframework.amqp.rabbit.core.RabbitAdmin;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -30,9 +24,6 @@ public class RbtRabbitConfig {
 
     @Value("${ice.active}")
     private String env;
-
-
-
 
     /**
      * 定义连接，我方rabbitMQ
@@ -85,33 +76,8 @@ public class RbtRabbitConfig {
         //设置线程数
         factory.setConcurrentConsumers(concurrency);
         //最大线程数
-        factory.setMaxConcurrentConsumers(maxConcurrency);
-//        factory.setRetryTemplate(attemptsRetry());
+        factory.setMaxConcurrentConsumers(concurrency * 3);
         factory.setMissingQueuesFatal(false);
         return factory;
     }
-
-
-    @Bean
-    //@ConditionalOnProperty(prefix = "ice.iot.pubRbtMess", name = "enable", matchIfMissing = true)
-    public RabbitAdmin rabbitAdmin(@Qualifier("rbtConnectionFactory") ConnectionFactory connectionFactory) {
-        RabbitAdmin rabbitAdmin = new RabbitAdmin(connectionFactory);
-        // 只有设置为 true，spring 才会加载 RabbitAdmin 这个类
-        rabbitAdmin.setAutoStartup(true);
-
-        //声明RabbitAdmin用户创建交换机，队列及绑定关系
-        //创建交换机,并用rabbitAdmin进行声明
-        FanoutExchange fanoutExchange = new FanoutExchange(MqttConstants.RBT_TOPIC_EXCHANGE);
-        rabbitAdmin.declareExchange(fanoutExchange);
-        //创建队列,设置消息的持久化存储为true
-        Queue queue = new Queue(MqttConstants.RBT_TOPIC_QUEUE + this.env, true);
-        //创建此队列与交换机的绑定关系,路由键为文章作者的id
-        Binding bind = BindingBuilder.bind(queue).to(fanoutExchange);
-        //声明队列的使用
-        rabbitAdmin.declareQueue(queue);
-        //增加队列与交换机之间此作者id的路由键绑定
-        rabbitAdmin.declareBinding(bind);
-        return rabbitAdmin;
-    }
-
 }

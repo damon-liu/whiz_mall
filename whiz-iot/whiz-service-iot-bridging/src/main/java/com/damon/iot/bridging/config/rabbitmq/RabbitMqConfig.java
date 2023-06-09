@@ -79,7 +79,7 @@ public class RabbitMqConfig {
         //设置线程数
         factory.setConcurrentConsumers(concurrency);
         //最大线程数
-        factory.setMaxConcurrentConsumers(concurrency * 3);
+        factory.setMaxConcurrentConsumers(maxConcurrency * 2);
         factory.setMissingQueuesFatal(false);
         return factory;
     }
